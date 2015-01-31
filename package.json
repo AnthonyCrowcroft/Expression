@@ -1,0 +1,13 @@
+{
+  "name": "Expression",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.11.1",
+    "passport": "^0.2.1",
+    "passport-local": "^0.1.6"
+  }
+}
