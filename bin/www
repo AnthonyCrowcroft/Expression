@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+var app = require('./../server');
+app.listen(3000, function(){
+    console.log("Server is now running on Port: 3000");
+});
