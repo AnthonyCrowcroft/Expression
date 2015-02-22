@@ -5,19 +5,17 @@ var router = Express.Router();
 module.exports = function(){
 
     router.get('/success', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user
-        });
+        res.redirect('/profile');
     });
 
     router.get('/unsuccess', function(req, res) {
-        res.render('index.ejs');
+        res.redirect('/');
     });
 
     // runs the logout function
     router.get('/logout', function(req, res) {
         req.logout();
-        res.redirect('/user/unsuccess');
+        res.redirect('/');
     });
 
 
