@@ -6,5 +6,5 @@ var router = Express.Router();
 var staticPath = path.resolve(__dirname, '../../', 'public');
 router.use(Express.static(staticPath));
 
-//returns router to be used in app.js
+//returns router to be used in server.js
 module.exports = router;
