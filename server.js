@@ -1,7 +1,6 @@
 // server.js
 
 // set up ======================================================================
-// get all the tools we need
 var Express  = require('express');
 var app      = Express();
 var mongoose = require('mongoose');
@@ -15,7 +14,7 @@ var session      = require('express-session');
 
 
 var configDB = require('./config/databaseConfig.js');
-mongoose.connect(configDB.url); // connect to our database
+//mongoose.connect(configDB.url); // connect to our database       //comment this line to run without confuguring and running a mongo DB
 
 
 require('./config/passportConfig')(passport); // pass passport for configuration
@@ -26,7 +25,6 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
 app.use(session({ secret: 'BondrunswAterColor' }));
