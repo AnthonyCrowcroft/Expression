@@ -8,8 +8,9 @@ angular.module("expApp", ['ui.bootstrap'])
             restrict: 'E',
             templateUrl: '/html/nav-panel.html',
             controller: function(){
-                var userName = "Bilbo";
+                this.userName = "Anthony";
             },
-            controllerAs: 'navData'
+            controllerAs: 'nav'
         };
     });
+

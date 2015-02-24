@@ -66,7 +66,7 @@
  /* Links and Images */
  a, a:link, a:visited, a:active, a:hover 
 {
-    text-decoration: underline;
+    text-decoration: none;
 }
  
  img 
