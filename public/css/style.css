@@ -1,3 +1,37 @@
 .login-btn {
     margin-right: 0;
 }
+
+.login-btn-width {
+    width: 100px;
+}
+.login-dropdown {
+    width: 280px;
+}
+
+.login-panel {
+    padding: 10px;
+}
+
+.login-btn-block {
+    margin: 0 auto;
+}
+
+.login-form-btn {
+    width: calc(50% - 2px);
+}
+
+
+
+div.navbar-collapse.collapse {
+    display: block;
+    overflow: hidden;
+    max-height: 0px;
+    -webkit-transition: max-height .3s ease;
+    -moz-transition: max-height .3s ease;
+    -o-transition: max-height .3s ease;
+    transition: max-height .3s ease;
+}
+div.navbar-collapse.collapse.in {
+    max-height: 2000px;
+}

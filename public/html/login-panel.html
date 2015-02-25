@@ -1,0 +1,27 @@
+<div class="login-panel" >
+    <form>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name" ng-hide="loginState=='Login'">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" ng-hide="loginState=='Login'">
+        </div>
+    </form>
+    <li class="divider"></li>
+    <div>
+        <div class="login-btn-block" ng-hide="loginState=='Register'">
+            <button class="btn btn-default login-form-btn" ng-click="loginState = 'Register'"> Register Now </button>
+            <button class="btn btn-success login-form-btn"> Login Now </button>
+        </div>
+        <div class="login-btn-block" ng-hide="loginState=='Login'">
+            <button class="btn btn-default login-form-btn" ng-click="loginState = 'Login'"> Existing User </button>
+            <button class="btn btn-success login-form-btn"> Sign Up </button>
+        </div>
+    </div>
+</div>
