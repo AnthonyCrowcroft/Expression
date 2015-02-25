@@ -7,11 +7,8 @@ angular.module("expApp")
         return {
             restrict: 'E',
             templateUrl: '/html/nav-panel.html',
-            controller: function($scope){
+            controller: function(){
 
-                $scope.prevent = function(evt) {
-                    evt.stopPropagation();
-                };
             },
             controllerAs: 'nav'
         };

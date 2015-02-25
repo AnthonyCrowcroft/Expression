@@ -7,8 +7,8 @@ angular.module("expApp")
         return {
             restrict: 'E',
             templateUrl: '/html/login-panel.html',
-            controller: function($scope){
-                $scope.loginState = "Login";
+            controller: function(){
+
             },
             controllerAs: 'login'
         };

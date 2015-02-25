@@ -1,0 +1,45 @@
+{
+  "databaseConfig": {
+    "url": "mongodb://localhost/expression"
+  },
+  "frontendConfig": {
+    "siteName": "Expression",
+    "users": true,
+    "search": false,
+    "pages": {
+      "home": {
+        "id": "some database key",
+        "url": "/",
+        "title": "Home"
+      },
+      "contactUs": {
+        "id": "some database key",
+        "url": "/contact",
+        "title": "Contact Us"
+      },
+      "aboutUs": {
+        "id": "some database key",
+        "url": "/about",
+        "title": "About Us"
+      }
+    }
+
+  },
+  "passportAuthConfig": {
+    "facebookAuth": {
+      "clientID": "your-secret-clientID-here",
+      "clientSecret": "your-client-secret-here",
+      "callbackURL": "http://localhost:3000/auth/facebook/callback"
+    },
+    "twitterAuth": {
+      "consumerKey": "your-consumer-key-here",
+      "consumerSecret": "your-client-secret-here",
+      "callbackURL": "http://localhost:3000/auth/twitter/callback"
+    },
+    "googleAuth": {
+      "clientID": "your-secret-clientID-here",
+      "clientSecret": "your-client-secret-here",
+      "callbackURL": "http://localhost:3000/auth/google/callback"
+    }
+  }
+}
