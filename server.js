@@ -17,7 +17,7 @@ var configDB = require('./config/databaseConfig.js');
 //mongoose.connect(configDB.url); // connect to our database       //comment this line to run without confuguring and running a mongo DB
 
 
-require('./config/passportConfig')(passport); // pass passport for configuration
+require('./app/config/passportConfig')(passport); // pass passport for configuration
 
     // set up our express application
 app.use(morgan('dev')); // log every request to the console
