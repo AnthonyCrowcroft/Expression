@@ -6,8 +6,21 @@
 
             });
 
-    app.run(function ($rootScope) {
-        $rootScope.loginState = "Login";
+    app.run( function ($http, $rootScope) {
+        var config = $http.get("/setup")
+            .success( function(data) {
+                $rootScope.siteName = data.siteName;
+                $rootScope.favicon = data.favicon;
+                $rootScope.pages = data.pages;
+                $rootScope.search = data.search;
+                if (data.users == true) {
+                    $rootScope.users = true;
+                    $rootScope.loginState = "Login";
+                } else {
+                    $rootScope.users = false;
+                }
+            });
+
 
         $rootScope.prevent = function(evt) {
             evt.stopPropagation();

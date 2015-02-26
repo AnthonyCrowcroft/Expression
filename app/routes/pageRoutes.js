@@ -12,6 +12,4 @@ var router = Express.Router();
         res.json(config.frontendConfig);
     });
 
-console.log(config.frontendConfig);
-
 module.exports = router;

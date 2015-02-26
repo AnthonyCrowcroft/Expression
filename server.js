@@ -13,8 +13,8 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
 
-var configDB = require('./config/databaseConfig.js');
-//mongoose.connect(configDB.url); // connect to our database       //comment this line to run without confuguring and running a mongo DB
+var config = require('./config.json');
+//mongoose.connect(configDB.databaseConfig.url);       //comment this line to run without confuguring and running a mongoDB
 
 
 require('./app/config/passportConfig')(passport); // pass passport for configuration
@@ -35,6 +35,9 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // routes ======================================================================
 var staticFiles = require("./app/routes/staticRoutes.js");
 app.use("/", staticFiles);
+
+var pageRoutes = require("./app/routes/pageRoutes.js");
+app.use("/", pageRoutes);
 
 var userDefault = require("./app/routes/userDefaultRoutes.js");
 app.use("/user", userDefault);

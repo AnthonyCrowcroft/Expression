@@ -4,21 +4,19 @@
   },
   "frontendConfig": {
     "siteName": "Expression",
+    "favicon": "url link here",
     "users": true,
     "search": false,
     "pages": {
-      "home": {
-        "id": "some database key",
+      "home" : {
         "url": "/",
         "title": "Home"
       },
-      "contactUs": {
-        "id": "some database key",
+      "contact" : {
         "url": "/contact",
         "title": "Contact Us"
       },
-      "aboutUs": {
-        "id": "some database key",
+      "about" : {
         "url": "/about",
         "title": "About Us"
       }
