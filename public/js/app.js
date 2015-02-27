@@ -1,6 +1,6 @@
 (function() {
     var app = angular
-        .module("expApp", ['ui.bootstrap'])
+        .module("expApp", ['ui.bootstrap', 'ui.router'])
             .config(function($locationProvider) {
                 $locationProvider.html5Mode(true);
 
