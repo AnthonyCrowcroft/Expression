@@ -7,23 +7,18 @@
     "favicon": "url link here",
     "users": true,
     "search": false,
-    "pages": {
-      "home" : {
-        "url": "/",
-        "title": "Home",
-        "type": "text"
-      },
-      "contact" : {
-        "url": "/contact",
+    "pages": [
+      {
+        "url": "contact",
         "title": "Contact Us",
         "type": "form"
       },
-      "about" : {
-        "url": "/about",
+      {
+        "url": "about",
         "title": "About Us",
         "type": "text"
       }
-    }
+    ]
 
   },
   "passportAuthConfig": {

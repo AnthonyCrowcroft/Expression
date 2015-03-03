@@ -14,8 +14,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
         <ul class="nav navbar-nav">
-            <li ng-repeat="page in pages" ng-if="page.title != 'Home' ">
-                <a ui-sref="{{page.url}}">{{page.title}}</a>
+            <li ng-repeat="page in pages">
+                <a ui-sref="{{'/' + page.url}}">{{page.title}}</a>
             </li>
         </ul>
 

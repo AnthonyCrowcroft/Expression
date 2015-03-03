@@ -4,22 +4,19 @@
 
 angular.module("expApp")
     .config(function(setupConfig, $stateProvider, $urlRouterProvider) {
-
         $urlRouterProvider.otherwise("/home");
 
+        // home needs to always exist and has its own template
         $stateProvider
             .state('/home', {
                 url: "/home",
                 templateUrl: "/html/partial/home.html"
-            })
-            .state('/contact', {
-                url: "/contact",
-                templateUrl: "/html/partial/contact.html"
-            })
-            .state('/about', {
-                url: "/about",
-                templateUrl: "/html/partial/about.html"
             });
 
-        console.log(setupConfig);
+        angular.forEach(setupConfig.pages, function(page) {
+            $stateProvider.state("/" + page.url, {
+                url: "/" + page.url,
+                templateUrl: "/html/partial/" + page.type + ".html"
+            })
+        });
     });
