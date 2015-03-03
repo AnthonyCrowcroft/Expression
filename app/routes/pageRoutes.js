@@ -12,4 +12,10 @@ var router = Express.Router();
         res.json(config.frontendConfig);
     });
 
+    for (var page in config.frontendConfig.pages) {
+        var urlPattern = "/pages/" + config.frontendConfig.pages[page].url;
+        router.get(urlPattern, function (req, res) {
+            res.json({"hello": "world"});
+        });
+    }
 module.exports = router;

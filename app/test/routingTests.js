@@ -10,8 +10,9 @@ describe('Request to the root path', function(){
 
     it('Returns a 200 status code', function(done){
         request(app)
-            .get('/')
+            .get('/pages/contact')
             .expect(200)
+            .expect('Content-Type', /json/)
             .end(function(error){
                 if(error) throw error;
                 done();

@@ -3,14 +3,14 @@
  */
 
 angular.module("expApp")
-    .directive("navPanel", function(setupConfig){
+    .directive("navPanel", function(SetupConfig){
         return {
             restrict: 'E',
             templateUrl: '/html/nav-panel.html',
             controller: function(){
-                this.siteName = setupConfig.siteName;
-                this.search = setupConfig.search;
-                this.users = setupConfig.users;
+                this.siteName = SetupConfig.siteName;
+                this.search = SetupConfig.search;
+                this.users = SetupConfig.users;
             },
             controllerAs: 'nav'
         };

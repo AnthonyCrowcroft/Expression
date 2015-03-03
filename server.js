@@ -33,8 +33,6 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-var pageRoutes = require("./app/routes/pageRoutes.js");
-app.use("/", pageRoutes);
 
 var userDefault = require("./app/routes/userDefaultRoutes.js");
 app.use("/user", userDefault);
@@ -50,6 +48,9 @@ app.use("/local", userLocal);
 
 var userTwitter = require("./app/routes/userFacebookRoutes.js")(passport);
 app.use("/twitter", userTwitter);
+
+var pageRoutes = require("./app/routes/pageRoutes.js");
+app.use("/", pageRoutes);
 
 var staticFiles = require("./app/routes/staticRoutes.js");
 app.use("/", staticFiles);

@@ -13,19 +13,19 @@
             var $http = initInjector.get('$http');
             $http.get("/setup").then(
                 function(response) {
-                    app.constant('setupConfig', response.data);
+                    app.constant('SetupConfig', response.data);
                     angular.bootstrap(document, ['expApp']);
                 }
             );
         }
     );
 
-    app.run( function (setupConfig, $rootScope) {
-        if (setupConfig.users == true) {
+    app.run( function (SetupConfig, $rootScope) {
+        if (SetupConfig.users == true) {
            $rootScope.loginState = "Login";
         }
-        $rootScope.siteName = setupConfig.siteName;
-        $rootScope.pages = setupConfig.pages;
+        $rootScope.siteName = SetupConfig.siteName;
+        $rootScope.pages = SetupConfig.pages;
 
 
 
