@@ -2,24 +2,32 @@
     var app = angular
         .module("expApp", ['ui.bootstrap', 'ui.router'])
             .config(function($locationProvider) {
-                $locationProvider.html5Mode(true);
-
+                $locationProvider.html5Mode({
+                    enabled: true
+                });
             });
 
-    app.run( function ($http, $rootScope) {
-        var config = $http.get("/setup")
-            .success( function(data) {
-                $rootScope.siteName = data.siteName;
-                $rootScope.favicon = data.favicon;
-                $rootScope.pages = data.pages;
-                $rootScope.search = data.search;
-                if (data.users == true) {
-                    $rootScope.users = true;
-                    $rootScope.loginState = "Login";
-                } else {
-                    $rootScope.users = false;
+    angular.element(document).ready(
+        function() {
+            var initInjector = angular.injector(['ng']);
+            var $http = initInjector.get('$http');
+            $http.get("/setup").then(
+                function(response) {
+                    app.constant('setupConfig', response.data);
+                    angular.bootstrap(document, ['expApp']);
                 }
-            });
+            );
+        }
+    );
+
+    app.run( function (setupConfig, $rootScope) {
+        if (setupConfig.users == true) {
+           $rootScope.loginState = "Login";
+        }
+        $rootScope.siteName = setupConfig.siteName;
+        $rootScope.pages = setupConfig.pages;
+
+
 
 
         $rootScope.prevent = function(evt) {

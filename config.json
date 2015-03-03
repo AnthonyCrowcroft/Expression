@@ -10,15 +10,18 @@
     "pages": {
       "home" : {
         "url": "/",
-        "title": "Home"
+        "title": "Home",
+        "type": "text"
       },
       "contact" : {
         "url": "/contact",
-        "title": "Contact Us"
+        "title": "Contact Us",
+        "type": "form"
       },
       "about" : {
         "url": "/about",
-        "title": "About Us"
+        "title": "About Us",
+        "type": "text"
       }
     }
 

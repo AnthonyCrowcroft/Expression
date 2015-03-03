@@ -8,25 +8,25 @@
             <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="/">{{siteName}}</a>
+        <a class="navbar-brand" ui-sref="/home">{{nav.siteName}}</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
         <ul class="nav navbar-nav">
             <li ng-repeat="page in pages" ng-if="page.title != 'Home' ">
-                <a href="{{page.url}}">{{page.title}}</a>
+                <a ui-sref="{{page.url}}">{{page.title}}</a>
             </li>
         </ul>
 
-        <form class="navbar-form navbar-left" role="search" ng-hide="search == false">
+        <form class="navbar-form navbar-left" role="search" ng-hide="nav.search == false">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
 
-        <ul class="navbar-btn navbar-right login-btn" ng-hide="users == false">
+        <ul class="navbar-btn navbar-right login-btn" ng-hide="nav.users == false">
             <li class="btn-group" dropdown>
                 <button type="button"  class="btn btn-primary dropdown-toggle login-btn-width" dropdown-toggle >
                     {{loginState}}
