@@ -11,14 +11,26 @@ angular.module("expApp")
             .state('/home', {
                 url: "/home",
                 templateUrl: "/html/partial/home.html",
-                controller: "PageController as content"
+                resolve:{
+                    homeData: function($http) {
+                        var location = "/pages/home";
+                        return $http.get(location);
+                    }
+                },
+                controller: "HomeController as home"
             });
 
         angular.forEach(SetupConfig.pages, function(page) {
             $stateProvider.state("/" + page.url, {
                 url: "/" + page.url,
                 templateUrl: "/html/partial/" + page.type + ".html",
-                controller: "PageController as content"
+                resolve:{
+                    pageData: function($http) {
+                        var location = "/pages/" + page.url;
+                        return $http.get(location);
+                    }
+                },
+                controller: 'PageController as page'
             })
         });
     });

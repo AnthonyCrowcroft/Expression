@@ -14,10 +14,12 @@ var session      = require('express-session');
 
 
 var config = require('./config.json');
-//mongoose.connect(configDB.databaseConfig.url);       //comment this line to run without confuguring and running a mongoDB
+mongoose.connect(config.databaseConfig.url);       //comment this line to run without configuring and running a mongoDB
 
 
 require('./app/config/passportConfig')(passport); // pass passport for configuration
+
+require('./app/config/pageConfig')();
 
     // set up our express application
 app.use(morgan('dev')); // log every request to the console

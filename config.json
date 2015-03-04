@@ -4,7 +4,6 @@
   },
   "frontendConfig": {
     "siteName": "Expression",
-    "favicon": "url link here",
     "users": true,
     "search": false,
     "pages": [
