@@ -2,20 +2,34 @@
  * Created by Anthony on 4/03/2015.
  */
 
-var config = require('./../../config.json');
-
-var textSample = { "heading" : "Meaningless Text",
-                   "body" : "Meaningless Text",
-                   "class" : "Meaningless Class",
-                   "author" : "Meaningless Persons Name" };
-
-var formSample = {"form" : "Meaningless Form Data"};
+var Page = require('../models/page');
 
 module.exports = function(){
-    var pages = config.frontendConfig.pages;
-    if (pages.length != 0) {
-        for (var page in pages) {
-            console.log(pages[page].url);
-        }
-    }
+            Page.findOne({url: "home"}, function (err, data) {
+                if (err)
+                    console.log(err);
+
+                if (data) {
+
+                } else {
+                    var home = new Page();
+                    home.url = "home";
+                    home.title = "Home Page";
+                    home.nav = false;
+                    home.type = "home";
+                    home.content = [
+                        {
+                            id: "para01",
+                            heading: "Welcome to Your new Home Page",
+                            body: "This is a seed application intended to be customisable and expanded to create a dynamic site for all situations",
+                            class: "jumbotron",
+                            author: "Administration"
+                        }
+                    ];
+                    home.save(function(err) {
+                            return console.error(err);
+                    });
+                }
+            });
+
 };

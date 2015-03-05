@@ -3,25 +3,30 @@
  */
 
 var Express = require("express");
-
 var config = require("./../../config.json");
+var pageServices = require('../services/pageServices');
 
 var router = Express.Router();
 
     router.get('/setup', function(req, res) {
-        res.json(config.frontendConfig);
-    });
-
-    router.get('/pages/home', function(req, res) {
-       res.json({"page": "home"});
-    });
-
-    for (var page in config.frontendConfig.pages) {
-        var urlPattern = "/pages/" + config.frontendConfig.pages[page].url;
-        router.get(urlPattern, function (req, res) {
-            var url = req.route.path;
-            var entryName = url.toString().split("/").pop();
-            res.json({"page": entryName});
+        var initConfig = config.frontendConfig;
+        pageServices.getPagesSimple(function(data){
+            initConfig.pages = data;
+            res.json(initConfig);
         });
-    }
+    });
+
+    pageServices.getPagesSimple(function(data){
+        for(page in data) {
+            var urlPattern = "/pages/" + data[page].url;
+            router.get(urlPattern, function (req, res) {
+                var url = req.route.path;
+                var entryName = url.toString().split("/").pop();
+                pageServices.getPage(entryName, function(data){
+                    res.json(data);
+                });
+            });
+        };
+    });
+
 module.exports = router;

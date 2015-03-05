@@ -25,9 +25,6 @@
            $rootScope.loginState = "Login";
         }
         $rootScope.siteName = SetupConfig.siteName;
-        $rootScope.pages = SetupConfig.pages;
-
-
 
 
         $rootScope.prevent = function(evt) {

@@ -7,10 +7,17 @@ angular.module("expApp")
         return {
             restrict: 'E',
             templateUrl: '/html/nav-panel.html',
-            controller: function(){
+            controller: function() {
                 this.siteName = SetupConfig.siteName;
                 this.search = SetupConfig.search;
                 this.users = SetupConfig.users;
+                var pages = [];
+                angular.forEach(SetupConfig.pages, function (page) {
+                    if (page.nav) {
+                        pages.push(page);
+                    }
+                });
+                this.pages = pages;
             },
             controllerAs: 'nav'
         };

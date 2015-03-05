@@ -5,20 +5,7 @@
   "frontendConfig": {
     "siteName": "Expression",
     "users": true,
-    "search": false,
-    "pages": [
-      {
-        "url": "contact",
-        "title": "Contact Us",
-        "type": "form"
-      },
-      {
-        "url": "about",
-        "title": "About Us",
-        "type": "text"
-      }
-    ]
-
+    "search": false
   },
   "passportAuthConfig": {
     "facebookAuth": {

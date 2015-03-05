@@ -4,8 +4,10 @@
 
 var mongoose = require('mongoose');
 
-var pageSchema = mongoose.schema({
-    url: String,
+var pageSchema = new mongoose.Schema({
+    url: { type: String,
+           unique: true
+        },
     title: String,
     nav: Boolean,
     type: String,
