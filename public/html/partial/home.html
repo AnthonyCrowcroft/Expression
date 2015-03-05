@@ -1,1 +1,7 @@
-<p> Content: {{home.data}} </p>
+<div ng-repeat="data in home.data.content">
+    <div class= {{data.class}} >
+        <h2> {{data.heading}} </h2>
+        <p> {{data.body}} </p>
+        <p><em> {{data.author}} </em></p>
+    </div>
+</div>

@@ -32,7 +32,6 @@ module.exports.getPage = function(ref, callback) {
         if(err)
             return err;
         if (data) {
-            console.log(data);
             callback(data);
         }
     });
