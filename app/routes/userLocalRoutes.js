@@ -11,12 +11,18 @@ module.exports = function(passport) {
 
 
     // process the signup form
-    router.post('/signup', passport.authenticate('local-signup'), function(req, res){
-            res.json({message: "fuck bitches"});
-
+    router.post('/signup', function(req, res, next){
+        console.log("before auth");
+        passport.authenticate('local-signup', function(err, user, info) {
+            console.log("after auth");
+            if (err)
+                console.log(err);
+            console.log(info);
+            res.json({message: "we are getting somewhere"});
+        });
     });
 
-    router.post('/connect', passport.authenticate('local-signup'), function(req, res){
+    router.post('/connect', passport.authenticate('local-signup'), function(err, req, res, next){
 
     });
 
@@ -25,6 +31,8 @@ module.exports = function(passport) {
         user.local.email = undefined;
         user.local.password = undefined;
         user.save(function (err) {
+            if (err)
+                console.log(err);
             res.redirect('/user/success');
         });
     });
