@@ -38,5 +38,5 @@ module.exports.getPage = function(ref, callback) {
 };
 
 module.exports.addPage = function(obj) {
-
+    console.log(obj);
 };

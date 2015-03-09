@@ -26,7 +26,16 @@ var router = Express.Router();
                     res.json(data);
                 });
             });
+            //router.post(urlPattern, function(req, res) {});  //update page
+            //router.delete(urlPattern, function(req, res) {}); //delete page
         };
+
     });
+
+    router.post('/pages/create', function(req, res){
+        console.log(req);
+    });
+
+
 
 module.exports = router;

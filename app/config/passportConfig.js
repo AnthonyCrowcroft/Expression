@@ -70,8 +70,8 @@ module.exports = function(passport) {
         usernameField : 'email',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
-    },
-    function(req, email, password, done) {
+    }, function(req, email, password, done) {
+
         if (email)
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
@@ -86,7 +86,8 @@ module.exports = function(passport) {
 
                     // check to see if theres already a user with that email
                     if (user) {
-                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+
+                        return done(null, false, {message: "That email address is currently already linked to an account"});
                     } else {
 
                         // create the user
@@ -104,17 +105,20 @@ module.exports = function(passport) {
                     }
 
                 });
+
             // if the user is logged in but has no local account...
+
             } else if ( !req.user.local.email ) {
+
                 // ...presumably they're trying to connect a local account
                 // BUT let's check if the email used to connect a local account is being used by another user
                 User.findOne({ 'local.email' :  email }, function(err, user) {
                     if (err)
                         return done(err);
-                    
+
                     if (user) {
-                        return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
-                        // Using 'loginMessage instead of signupMessage because it's used by /connect/local'
+                        return done(null, false, {message: "That email is already being used by another account"});
+
                     } else {
                         var user = req.user;
                         user.local.email = email;
@@ -122,7 +126,6 @@ module.exports = function(passport) {
                         user.save(function (err) {
                             if (err)
                                 return done(err);
-                            
                             return done(null,user);
                         });
                     }

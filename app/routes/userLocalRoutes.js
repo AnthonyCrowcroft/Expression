@@ -5,32 +5,21 @@ var router = Express.Router();
 module.exports = function(passport) {
 
     // process the login form
-    router.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/user/success',
-        failureRedirect : '/login', // redirect back to the signup page if there is an error
-        failureFlash : true                 // allow flash messages
-    }));
+    router.post('/login', passport.authenticate('local-login'),function(req, res) {
+
+    });
 
 
     // process the signup form
-    router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect : '/user/success',
-        failureRedirect : '/signup', // redirect back to the signup page if there is an error
-        failureFlash : true                 // allow flash messages
-    }));
+    router.post('/signup', passport.authenticate('local-signup'), function(req, res){
+            res.json({message: "fuck bitches"});
 
-    router.get('/connect', function (req, res) {
-        res.render('connect-local.ejs', {message: req.flash('loginMessage')});
     });
-    router.post('/connect', passport.authenticate('local-signup', {
-        successRedirect: '/user/success', // redirect to the secure profile section
-        failureRedirect: '/local/connect', // redirect back to the signup page if there is an error
-        failureFlash: true                  // allow flash messages
-    }));
 
-    // for local account, remove email and password
-    // user account will stay active in case they want to reconnect in the future
-    // local -----------------------------------
+    router.post('/connect', passport.authenticate('local-signup'), function(req, res){
+
+    });
+
     router.get('/unlink', isLoggedIn, function (req, res) {
         var user = req.user;
         user.local.email = undefined;

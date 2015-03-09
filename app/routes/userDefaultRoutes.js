@@ -4,18 +4,10 @@ var router = Express.Router();
 
 module.exports = function(){
 
-    router.get('/success', isLoggedIn, function(req, res) {
-        res.redirect('/profile');
-    });
-
-    router.get('/unsuccess', function(req, res) {
-        res.redirect('/');
-    });
-
     // runs the logout function
     router.get('/logout', function(req, res) {
         req.logout();
-        res.redirect('/');
+        res.json({message: "now logged out"});
     });
 
 
