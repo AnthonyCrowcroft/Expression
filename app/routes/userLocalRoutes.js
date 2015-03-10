@@ -12,14 +12,13 @@ module.exports = function(passport) {
 
     // process the signup form
     router.post('/signup', function(req, res, next){
-        console.log("before auth");
-        passport.authenticate('local-signup', function(err, user, info) {
-            console.log("after auth");
+
+        return passport.authenticate('local-signup', function(err, user, info) {
             if (err)
                 console.log(err);
             console.log(info);
-            res.json({message: "we are getting somewhere"});
-        });
+            res.json(info);
+        })(req, res, next);
     });
 
     router.post('/connect', passport.authenticate('local-signup'), function(err, req, res, next){

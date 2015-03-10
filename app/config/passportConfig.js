@@ -87,7 +87,7 @@ module.exports = function(passport) {
                     // check to see if theres already a user with that email
                     if (user) {
 
-                        return done(null, false, {message: "That email address is currently already linked to an account"});
+                        return done(null, false, {type: "danger", msg: "That email address is currently already linked to an account"});
                     } else {
 
                         // create the user
@@ -100,7 +100,7 @@ module.exports = function(passport) {
                             if (err)
                                 return done(err);
 
-                            return done(null, newUser);
+                            return done(null, newUser, {type: "success", msg: "Account created please login"});
                         });
                     }
 
@@ -117,7 +117,7 @@ module.exports = function(passport) {
                         return done(err);
 
                     if (user) {
-                        return done(null, false, {message: "That email is already being used by another account"});
+                        return done(null, false, {type: "danger", msg: "That email is already being used by connected to another account"});
 
                     } else {
                         var user = req.user;
@@ -126,13 +126,13 @@ module.exports = function(passport) {
                         user.save(function (err) {
                             if (err)
                                 return done(err);
-                            return done(null,user);
+                            return done(null, user, {type:"success", msg:"Local account has been reconnected"});
                         });
                     }
                 });
             } else {
                 // user is logged in and already has a local account. Ignore signup. (You should log out before trying to create a new account, user!)
-                return done(null, req.user);
+                return done(null, req.user, {type: "info", msg: "Already logged in and connected to a local account"});
             }
 
         });

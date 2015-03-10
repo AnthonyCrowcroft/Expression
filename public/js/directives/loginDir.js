@@ -19,21 +19,16 @@ angular.module("expApp")
                 this.signUp = function(input){
                     if (this.user.email && this.user.password && this.user.passConfirm) {
                         if (this.user.password == this.user.passConfirm) {
-                            console.log(input);
                             $http.post('/local/signup', {
                                 "email": this.user.email,
                                 "password": this.user.password
-                            }).then(function(err, data){
+                            }).then(function(err, response){
                                 if (err)
-                                    return err;
-                                if(data) {
-                                    console.log("something was returned");
-                                    return data;
-                                } else {
-                                    console.log("no data returned");
-
-                                }
-                            })
+                                    console.log(err);
+                                if(response) {
+                                    var content = response.data;
+                                    console.log(content);
+                            }});
                         } else {
                             console.log("Passwords don't match");
                         }
