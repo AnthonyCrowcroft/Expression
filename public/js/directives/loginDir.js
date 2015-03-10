@@ -6,8 +6,9 @@ angular.module("expApp")
     .directive("loginPanel", function(){
         return {
             restrict: 'E',
+            replace: true,
             templateUrl: '/html/login-panel.html',
-            controller: function($http){
+            controller: function($http, $rootScope){
                 this.user = {};
                 this.signIn = function(input){
                     if (this.user.email && this.user.password) {
@@ -16,19 +17,18 @@ angular.module("expApp")
                         console.log("A field did not pass validation");
                     }
                 };
-                this.signUp = function(input){
+                this.signUp = function(){
                     if (this.user.email && this.user.password && this.user.passConfirm) {
                         if (this.user.password == this.user.passConfirm) {
                             $http.post('/local/signup', {
                                 "email": this.user.email,
                                 "password": this.user.password
-                            }).then(function(err, response){
-                                if (err)
-                                    console.log(err);
+                            }).then(function(response){
                                 if(response) {
-                                    var content = response.data;
-                                    console.log(content);
-                            }});
+                                    $rootScope.alerts.push(response.data);
+                                }
+
+                            });
                         } else {
                             console.log("Passwords don't match");
                         }

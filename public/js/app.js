@@ -26,7 +26,6 @@
         }
         $rootScope.siteName = SetupConfig.siteName;
 
-
         $rootScope.prevent = function(evt) {
             evt.stopPropagation();
         };

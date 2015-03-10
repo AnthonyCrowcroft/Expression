@@ -6,6 +6,7 @@ angular.module("expApp")
     .directive("navPanel", function(SetupConfig){
         return {
             restrict: 'E',
+            replace: true,
             templateUrl: '/html/nav-panel.html',
             controller: function() {
                 this.siteName = SetupConfig.siteName;

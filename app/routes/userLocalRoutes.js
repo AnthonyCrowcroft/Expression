@@ -16,8 +16,10 @@ module.exports = function(passport) {
         return passport.authenticate('local-signup', function(err, user, info) {
             if (err)
                 console.log(err);
+
             console.log(info);
             res.json(info);
+
         })(req, res, next);
     });
 

@@ -18,11 +18,11 @@
     <div>
         <div class="login-btn-block" ng-hide="loginState=='Register'">
             <button class="btn btn-default login-form-btn" ng-click="loginState = 'Register'"> Register Now </button>
-            <button class="btn btn-success login-form-btn" ng-click="login.signIn(login.user)"> Login Now </button>
+            <button class="btn btn-success login-form-btn" ng-click="login.signIn()"> Login Now </button>
         </div>
         <div class="login-btn-block" ng-hide="loginState=='Login'">
             <button class="btn btn-default login-form-btn" ng-click="loginState = 'Login'"> Existing User </button>
-            <button class="btn btn-success login-form-btn" ng-click="login.signUp(login.user)"> Sign Up </button>
+            <button class="btn btn-success login-form-btn" ng-click="login.signUp()"> Sign Up </button>
         </div>
     </div>
 </div>

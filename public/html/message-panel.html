@@ -1,0 +1,3 @@
+<div class="message-panel col-md-8 col-md-offset-2">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="message.close($index)">{{alert.msg}}</alert>
+</div>
