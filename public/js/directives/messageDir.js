@@ -12,9 +12,10 @@ angular.module("expApp")
                 $rootScope.alerts = [];
 
                 this.close = function(index) {
+                    console.log(index);
                     $rootScope.alerts.splice(index, 1);
                 };
             },
-            controllerAs: 'alert'
+            controllerAs: 'message'
         };
     });

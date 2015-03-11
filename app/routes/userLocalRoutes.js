@@ -5,9 +5,19 @@ var router = Express.Router();
 module.exports = function(passport) {
 
     // process the login form
-    router.post('/login', passport.authenticate('local-login'),function(req, res) {
+    router.post('/login', function(req, res, next) {
+        return passport.authenticate('local-login', function (err, user, info) {
+            if (err)
+                console.log(err);
+            var toSend = {};
+            toSend.user = user;
+            toSend.info = info;
 
+            res.json(toSend);
+
+        })(req, res, next);
     });
+
 
 
     // process the signup form
@@ -16,14 +26,11 @@ module.exports = function(passport) {
         return passport.authenticate('local-signup', function(err, user, info) {
             if (err)
                 console.log(err);
-
-            console.log(info);
             res.json(info);
-
         })(req, res, next);
     });
 
-    router.post('/connect', passport.authenticate('local-signup'), function(err, req, res, next){
+    router.post('/connect', passport.authenticate('local-signup'), function(req, res, next){
 
     });
 

@@ -10,9 +10,20 @@ angular.module("expApp")
             templateUrl: '/html/login-panel.html',
             controller: function($http, $rootScope){
                 this.user = {};
-                this.signIn = function(input){
+                this.signIn = function(){
                     if (this.user.email && this.user.password) {
-                        console.log(input);
+                        $http.post('/local/login', {
+                            "email": this.user.email,
+                            "password": this.user.password
+                        }).then(function(response){
+                            if(response) {
+                                if (response.data.user != false) {
+                                    $rootScope.user = response.data.user;
+                                } else if (response.data.info) {
+                                    $rootScope.alerts.push(response.data.info);
+                                }
+                            }
+                        });
                     } else {
                         console.log("A field did not pass validation");
                     }

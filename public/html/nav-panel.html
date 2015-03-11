@@ -27,7 +27,16 @@
         </form>
 
         <ul class="navbar-btn navbar-right login-btn" ng-hide="nav.users == false">
-            <li class="btn-group" dropdown>
+            <li ng-show="user !== undefined"class="btn-group" dropdown>
+                <button type="button"  class="btn btn-default dropdown-toggle login-btn-width" dropdown-toggle >
+                    User
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" role="menu" ng-click="prevent($event)">
+                    <p> you have logged in.</p>
+                </div>
+            </li>
+            <li ng-show="user === undefined" class="btn-group" dropdown>
                 <button type="button"  class="btn btn-primary dropdown-toggle login-btn-width" dropdown-toggle >
                     {{loginState}}
                     <span class="caret"></span>
