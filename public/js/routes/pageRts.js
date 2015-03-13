@@ -10,7 +10,7 @@ angular.module("expApp")
             if (page.type == "home"){
                 $stateProvider.state('/home', {
                     url: "/home",
-                    templateUrl: "/html/partial/home.html",
+                    templateUrl: "/html/pages/home.html",
                     resolve:{
                         homeData: function($http) {
                             var location = "/pages/home";
@@ -23,7 +23,7 @@ angular.module("expApp")
             } else{
                 $stateProvider.state("/" + page.url, {
                     url: "/" + page.url,
-                    templateUrl: "/html/partial/" + page.type + ".html",
+                    templateUrl: "/html/pages/" + page.type + ".html",
                     resolve:{
                         pageData: function($http) {
                             var location = "/pages/" + page.url;

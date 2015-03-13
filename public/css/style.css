@@ -3,7 +3,8 @@
 }
 
 .login-btn-width {
-    width: 100px;
+    min-width: 130px;
+    max-width: 200px;
 }
 .login-dropdown {
     width: 280px;
@@ -21,14 +22,47 @@
     width: calc(50% - 2px);
 }
 
+.avatar-md {
+    height: 120px;
+    width: 120px;
+    background-color: #000000;
+    margin-bottom: 5px;
+}
+.profile {
+    display: inline-block;
+}
+
+.profile-panel {
+    width: 355px;
+    margin: 10px;
+}
+
+.width-full {
+    width: 100%
+}
+
+.width-half {
+    width: 50%;
+}
+
+.profile-left {
+    margin-right: 5px;
+    width: 120px;
+}
+
+.profile-right {
+    margin-left: 5px;
+    width: 220px;
+}
+
 div.navbar-collapse.collapse {
     display: block;
     overflow: hidden;
     max-height: 0px;
-    -webkit-transition: max-height .3s ease;
-    -moz-transition: max-height .3s ease;
-    -o-transition: max-height .3s ease;
-    transition: max-height .3s ease;
+    -webkit-transition: max-height .6s ease;
+    -moz-transition: max-height .6s ease;
+    -o-transition: max-height .6s ease;
+    transition: max-height .6s ease;
 }
 
 div.navbar-collapse.collapse.in {

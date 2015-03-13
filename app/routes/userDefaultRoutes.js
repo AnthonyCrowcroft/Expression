@@ -6,10 +6,9 @@ module.exports = function(){
 
     // runs the logout function
     router.get('/logout', function(req, res) {
-        req.logout();
         res.json({type: "info", msg: "now logged out"});
-    })(req, res, next);
-
+        //req.logout();
+    });
 
     return router
 };

@@ -1,0 +1,17 @@
+<div class="profile-panel">
+    <div class="profile profile-left">
+        <canvas class="avatar-md"></canvas>
+        <button type="button" class="btn btn-danger width-full" ng-click="profile.logout()"> Logout </button>
+    </div>
+    <div class="profile profile-right">
+        <p> First Name </p>
+        <p> Last Name  </p>
+        <p>{{user.local.email}}</p>
+        <p> User Since </p>
+        <li class="divider"></li>
+        <div class="btn-group width-full">
+            <button class="btn btn-default width-half"> Edit </button>
+            <button class="btn btn-success width-half"> Create </button>
+        </div>
+    </div>
+</div>
