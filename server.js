@@ -19,7 +19,6 @@ mongoose.connect(config.databaseConfig.url);       //comment this line to run wi
 
 require('./app/config/passportConfig')(passport); // pass passport for configuration
 
-require('./app/config/pageConfig')();
 
     // set up our express application
 app.use(morgan('dev')); // log every request to the console
