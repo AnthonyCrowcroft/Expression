@@ -6,7 +6,7 @@
     <title ng-bind="siteName"></title>
 
     <script type="text/javascript" src="./lib/angular.min.js"></script>
-    <script type="text/javascript" src="./lib/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script type="text/javascript" src="./lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
     <script type="text/javascript" src="./lib/angular-ui-router.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="./css/reset.css" />
@@ -17,11 +17,11 @@
 
 <body>
     <nav-panel> </nav-panel>
-    <div ui-view></div>
+    <div ui-view> </div>
     <message-panel> </message-panel>
     <footer class="footer">
         <div class="container">
-            <p class="text-muted">Footer space as of yet unutilised.</p>
+            <p class="text-muted">Footer space as of yet doing sfa.</p>
         </div>
     </footer>
 
@@ -30,9 +30,11 @@
     <script type="text/javascript" src="js/directives/loginDir.js"></script>
     <script type="text/javascript" src="js/directives/messageDir.js"></script>
     <script type="text/javascript" src="js/directives/profileDir.js"></script>
+    <script type="text/javascript" src="js/directives/pageDir.js"></script>
     <script type="text/javascript" src="js/routes/pageRts.js"></script>
     <script type="text/javascript" src="js/controller/pageCtlr.js"></script>
     <script type="text/javascript" src="js/controller/homeCtlr.js"></script>
+    <script type="text/javascript" src="js/controller/pageManagerCtlr.js"></script>
 </body>
 
 </html>
