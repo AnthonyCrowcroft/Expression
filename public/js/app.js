@@ -22,7 +22,8 @@
 
     app.run( function (SetupConfig, $rootScope) {
         if (SetupConfig.users == true) {
-           $rootScope.loginState = "Login";
+            $rootScope.loginState = "Login";
+            $rootScope.modalState = "Edit";
         }
         $rootScope.siteName = SetupConfig.siteName;
 
