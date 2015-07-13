@@ -202,3 +202,8 @@ div.navbar-collapse.collapse.in {
 .container .text-muted {
     margin: 20px 0;
 }
+
+.page-modal-top {
+    display: inline-block;
+    width: 100%;
+}

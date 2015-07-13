@@ -37,6 +37,7 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, email, password, done) {
+        console.log(req);
         if (email)
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
@@ -56,7 +57,10 @@ module.exports = function(passport) {
 
                 // all is well, return user
                 else
-                    return done(null, user);
+                    if (user == req.user)
+                        return done(null, false,{type:"info", msg: "Logged in"});
+                    else
+                        return done(null, user, {type:"info", msg: "Logged in"});
             });
         });
 
