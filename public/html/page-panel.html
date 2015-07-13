@@ -4,21 +4,21 @@
     <h3 class="modal-title">{{modalState}}</h3>
 </div>
 
-<div class="modal-body page-modal-top">
-    <form class="form-horizontal">
+<div class="modal-body page-modal-top" ng-controller="PageManagerController">
+    <form novalidate class="form-horizontal">
         <div class="col-md-6">
 
             <div class="form-group">
                 <label for="title" class="control-label col-md-2">Title</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="title">
+                    <input ng-model="form.title" type="text" class="form-control" id="title">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="url" class="control-label col-md-2">URL</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="url">
+                    <input ng-model="form.url" type="text" class="form-control" id="url">
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
             <div class="form-group">
                 <label for="page-type" class="control-label col-md-4">Page Type</label>
                 <div class="col-md-8">
-                    <select ng-model="pageDropDown" class="form-control" id="page-type">
+                    <select ng-model="form.pageType" class="form-control" id="page-type">
                         <option value="0">Plain Text</option>
                         <option value="1">Form</option>
                         <option value="2">Jumbotron</option>
@@ -39,9 +39,9 @@
             <div class="form-group">
                 <label for="nav-link" class="control-label col-md-4">Link to Nav?</label>
                 <div class="col-md-8">
-                    <select ng-model="navLink" class="form-control" id="nav-link">
-                        <option value="0" selected="selected">Yes</option>
-                        <option value="1">No</option>
+                    <select ng-model="form.nav" class="form-control" id="nav-link">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
                 </div>
             </div>
@@ -49,19 +49,19 @@
 
     </form>
 
-    <div ng-if="pageDropDown =='0'">
+    <div ng-if="form.pageType=='0'">
         <div class="form-horizontal">
         <h3 class="modal-title">Plain Text</h3>
             <div class="form-group">
                 <label for="plain-text-body" class="control-label col-md-2">Body</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="plain-text-body">
+                    <input ng-model="page.body.text" type="text" class="form-control" id="plain-text-body">
                 </div>
             </div>
         </div>
     </div>
 
-    <div ng-if="pageDropDown =='1'">
+    <div ng-if="form.pageType=='1'">
         <h3 class="modal-title">Form</h3>
         <div class="form-horizontal">
             <div class="form-group">
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    <div ng-if="pageDropDown =='2'">
+    <div ng-if="form.pageType=='2'">
         <h3 class="modal-title">Jumbotron</h3>
         <div class="form-horizontal">
             <div class="form-group">

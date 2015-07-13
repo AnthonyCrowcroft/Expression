@@ -4,8 +4,6 @@
 angular.module("expApp")
     .controller('PageManagerController', function ($rootScope, $scope, $modal){
 
-
-
         this.create = function(){
             $rootScope.modalState = "Create";
             this.open('lg');
@@ -41,5 +39,8 @@ angular.module("expApp")
             }, function () {
                 console.log('Modal dismissed at: ' + new Date());
             });
+
+            $rootScope.form = {};
+
         };
     });
