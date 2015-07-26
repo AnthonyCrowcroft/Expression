@@ -21,8 +21,14 @@
     <message-panel> </message-panel>
     <footer class="footer">
         <div class="container">
-            <p class="text-muted">Footer space as of yet doing sfa.</p>
+            <p class="text-muted">Footer space as of yet doing SFA.</p>
         </div>
+        <div class="btn-group page-button" ng-controller="PageManagerController as modalManager">
+            <button class="btn btn-success width-third" ng-click="modalManager.create()"> Create </button>
+            <button class="btn btn-default width-third" ng-click="modalManager.edit()"> Edit </button>
+            <button class="btn btn-danger width-third"> Delete </button>
+        </div>
+
     </footer>
 
     <script type="text/javascript" src="js/app.js"></script>
