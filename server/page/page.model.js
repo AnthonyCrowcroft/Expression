@@ -4,7 +4,7 @@
  * Created:     26/02/2015
  */
 
-var mongoose = require('mongoose');
+var mongoose    = require('mongoose');
 
 var pageSchema = new mongoose.Schema({
     url       : {

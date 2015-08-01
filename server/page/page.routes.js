@@ -9,9 +9,7 @@ var Promise     = require("bluebird");
 var config      = require("./../server.config.json").frontendConfig;
 var Page        = Promise.promisifyAll(require('./page.model'));
 
-
 var router = Express.Router();
-
 
     // sends core page data to frontend
 router.get("/setup", function(req, res) {
@@ -23,7 +21,7 @@ router.get("/setup", function(req, res) {
         });
 });
 
-    // create page data
+    // TODO create page data
 router.post("/pages/:id", function(req, res) {
     res.send("create to be implemented");
 });
@@ -41,12 +39,12 @@ router.get("/pages/:id", function(req, res) {
         });
 });
 
-    // update page data
+    // TODO update page data
 router.put("/pages/:id", function(req, res) {
     res.send("update to be implemented");
 });
 
-    // delete page data
+    // TODO delete page data
 router.delete("/pages/:id", function(req, res){
     res.send("delete to be implemented");
 });

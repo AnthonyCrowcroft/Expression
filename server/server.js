@@ -26,8 +26,8 @@ var morgan          = require('morgan');
 app.use(morgan('dev'));
 
     // configure passport for user auth
-//var passport        = require('passport');
-//require('./user/user.logic')(passport);
+var passport        = require('passport');
+require('./user/user.config.js')(passport);
 
     // set up our express application
 app.use(cookieParser());
@@ -35,17 +35,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
     // required for passport
-//app.use(session({ secret: 'BondrunswAterColor' }));
-//app.use(passport.initialize());
-//app.use(passport.session());
-//app.use(flash());
+app.use(session({ secret: 'BondrunswAterColor' }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
     // initial config
 require("./page/page.config")();
 
     // api routes
-var pageRoutes      = require("./page/page.routes");
-app.use("/", pageRoutes);
+app.use("/", require("./page/page.routes"));
+require("./user/user.routes")(app, passport);
 
     // static routes
 var path            = require('path');
