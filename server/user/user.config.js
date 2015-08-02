@@ -11,25 +11,24 @@ var config  = require("./../server.config.json").adminUsers;
     // create admin account from the server.config.json
 module.exports = function() {
     Promise.map(config, function(user) {
-        User.findOne({"email": user.email}, function(err, result){}).exec()
+        User.findOne({"local.email": user.email}, function(err, result){
 
-            .then(function(data) {
-                if(!data) {
-                    var newUser = new User();
-                    newUser.local.email      = user.email;
-                    newUser.local.password   = newUser.generateHash(user.password);
-                    newUser.meta.privilege   = user.privilege;
-                    newUser.meta.firstName   = user.firstName;
-                    newUser.meta.created     = Date.now()
-                    newUser.save(function(err) {
-                        if(!err) {
-                            console.log("account created for " + user.email);
-                        }
-                    });
-                }
-                else {
-                    console.log("account already existing for " + user.email);
-                }
-            });
+            if(!result) {
+                var newUser = new User();
+                newUser.local.email      = user.email;
+                newUser.local.password   = newUser.generateHash(user.password);
+                newUser.meta.privilege   = user.privilege;
+                newUser.meta.firstName   = user.firstName;
+                newUser.meta.created     = Date.now()
+                newUser.save(function(err) {
+                    if(!err) {
+                        console.log("account created for " + user.email);
+                    }
+                });
+            }
+            else {
+                console.log("account already existing for " + user.email);
+            }
+        });
     });
 };
