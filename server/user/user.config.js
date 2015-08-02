@@ -1,82 +1,35 @@
 /**
  * Filename:    config.js
  * Package:     User
- * Created:     29/07/15.
+ * Created:     02/08/15.
  */
 
-var LocalStrategy   = require('passport-local').Strategy;
-var config          = require('./../server.config.json').passportAuthConfig;
-var User            = require('./user.model');
+var Promise = require("bluebird");
+var User    = Promise.promisifyAll(require("./user.model"));
+var config  = require("./../server.config.json").adminUsers;
 
-module.exports = function(passport) {
+    // create admin account from the server.config.json
+module.exports = function() {
+    Promise.map(config, function(user) {
+        User.findOne({"email": user.email}, function(err, result){}).exec()
 
-
-    passport.serializeUser(function(user, done) {
-        done(null, user.id);
-    });
-
-    passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
-            done(err, user);
-        });
-    });
-
-    passport.use("local-login", new LocalStrategy({
-        usernameField       : 'email',
-        passwordField       : 'password',
-        passReqToCallback   : true
-    }, function(req, email, password, done) {
-        if(email) {
-            email = email.toLowerCase();
-        }
-        process.nextTick(function() {
-            User.findOne({"local.email": email}, function(err, result) {
-
-                if(!result) {
-                    return done(null, false);
-                }
-
-                if(!result.validPassword(password)) {
-                    return done(null, false);
-                }
-
-                else {
-                    return done(null, result);
-                }
-            });
-        });
-
-    }));
-
-    passport.use("local-signup", new LocalStrategy({
-        usernameField       : 'email',
-        passwordField       : 'password',
-        passReqToCallback   : true
-    }, function(req, email, password, done) {
-        if(email) {
-            email = email.toLowerCase();
-        }
-        process.nextTick(function() {
-            User.findOne({"local.email": email}, function(err, result) {
-
-                if(result) {
-                    return done(null, false);
-                }
-                else {
+            .then(function(data) {
+                if(!data) {
                     var newUser = new User();
-                    newUser.local.email = email;
-                    newUser.local.password = newUser.generateHash(password);
+                    newUser.local.email      = user.email;
+                    newUser.local.password   = newUser.generateHash(user.password);
+                    newUser.meta.privilege   = user.privilege;
+                    newUser.meta.firstName   = user.firstName;
+                    newUser.meta.created     = Date.now()
+                    newUser.save(function(err) {
+                        if(!err) {
+                            console.log("account created for " + user.email);
+                        }
+                    });
                 }
-
-                newUser.save(function(err) {
-                    if(!err) {
-                        console.log("account created for " + email);
-                    }
-                    return done(null, newUser);
-                });
-
+                else {
+                    console.log("account already existing for " + user.email);
+                }
             });
-        });
-
-    }));
+    });
 };

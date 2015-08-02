@@ -7,21 +7,26 @@
     "users"             : true,
     "search"            : false
   },
+  "adminUsers"        : [
+    {
+      "email"           : "admin@email.com",
+      "password"        : "password",
+      "firstName"       : "Admin",
+      "privilege"       : 5
+    }
+  ],
   "passportAuthConfig": {
     "facebookAuth"      : {
       "clientID"          : "your-secret-clientID-here",
-      "clientSecret"      : "your-client-secret-here",
-      "callbackURL"       : "http://localhost:3000/auth/facebook/callback"
+      "clientSecret"      : "your-client-secret-here"
     },
     "twitterAuth"       : {
       "consumerKey"       : "your-consumer-key-here",
-      "consumerSecret"    : "your-client-secret-here",
-      "callbackURL"       : "http://localhost:3000/auth/twitter/callback"
+      "consumerSecret"    : "your-client-secret-here"
     },
     "googleAuth"        : {
       "clientID"          : "your-secret-clientID-here",
-      "clientSecret"      : "your-client-secret-here",
-      "callbackURL"       : "http://localhost:3000/auth/google/callback"
+      "clientSecret"      : "your-client-secret-here"
     }
   }
 }

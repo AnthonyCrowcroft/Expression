@@ -27,7 +27,7 @@ app.use(morgan('dev'));
 
     // configure passport for user auth
 var passport        = require('passport');
-require('./user/user.config.js')(passport);
+require('./user/user.logic.js')(passport);
 
     // set up our express application
 app.use(cookieParser());
@@ -42,6 +42,7 @@ app.use(flash());
 
     // initial config
 require("./page/page.config")();
+require("./user/user.config")();
 
     // api routes
 app.use("/", require("./page/page.routes"));
