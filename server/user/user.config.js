@@ -63,18 +63,18 @@ module.exports = function(passport) {
                     return done(null, false);
                 }
                 else {
-                    var newUser = new User({
-                        local: {
-                            email: email ,
-                            password: newUser.generateHash(password)
-                        }
-                    });
-                    newUser.save(function(err) {
-                        if(!err) {
-                            console.log("account created for " + email);
-                        }
-                    });
+                    var newUser = new User();
+                    newUser.local.email = email;
+                    newUser.local.password = newUser.generateHash(password);
                 }
+
+                newUser.save(function(err) {
+                    if(!err) {
+                        console.log("account created for " + email);
+                    }
+                    return done(null, newUser);
+                });
+
             });
         });
 

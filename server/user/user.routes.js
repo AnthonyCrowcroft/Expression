@@ -4,24 +4,39 @@
  * Created:     27/07/15.
  */
 
-var Express     = require("express");
-var User        = require('./user.model');
-
-
 module.exports = function(app, passport) {
 
-        // TODO login user
+        // login user
     app.post("/local/login", function (req, res) {
-        res.send("login to be implemented");
+        passport.authenticate('local-login', function(err, user) {
+            if(!user) {
+                res.send("login failed");
+            }
+            if(user) {
+                req.login(user, function(err) {
+                    if(!err) {
+                        return res.json(req.user);
+                    }
+                });
+            }
+        })(req, res);
     });
 
-        // TODO signup new user
+        // signup new user
     app.post("/local/signup", function (req, res) {
-        res.send("signup to be implemented");
+        passport.authenticate('local-signup', function(err, user) {
+            if(!user) {
+                res.send("signup failed");
+            }
+            if(user) {
+                res.send("signup was successful");
+            }
+        })(req, res);
     });
 
-        // TODO logout user
+        // logout user
     app.post("/local/logout", function (req, res) {
-        res.send("logout to be implemented");
+        req.logout();
+        res.send("you are logged out");
     });
 };

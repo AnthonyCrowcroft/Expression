@@ -23,17 +23,29 @@ router.get("/setup", function(req, res) {
 
     // TODO create page data
 router.post("/pages/:id", function(req, res) {
-    res.send("create to be implemented");
+    Page.findOne({"url": req.params.id}, function(err, result){}).exec()
+
+        .then(function(data) {
+            if(!data) {
+                var newPage = new Page();
+                console.log(req.data);
+                res.send("Create page here");
+            }
+            if(data) {
+                res.send("Page already exists sorry try again");
+            }
+        });
 });
 
     // serve page data
 router.get("/pages/:id", function(req, res) {
     Page.findOne({"url": req.params.id}, function(err, result){}).exec()
 
-        .then(function(data){
+        .then(function(data) {
             if(!data) {
                 res.status(404).json({title: "page not found"});
-            } if(data) {
+            }
+            if(data) {
                 res.json(data);
             }
         });
