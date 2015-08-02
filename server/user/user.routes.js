@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
             if(user) {
                 req.login(user, function(err) {
                     if(!err) {
-                        return res.json(req.user);
+                        return res.json({user: req.user});
                     }
                 });
             }
@@ -36,7 +36,11 @@ module.exports = function(app, passport) {
 
         // logout user
     app.post("/local/logout", function (req, res) {
-        req.logout();
-        res.send("you are logged out");
+        req.session.destroy(function(err){
+            if(!err) {
+                res.json({message: "GoodBye"});
+            }
+        });
+
     });
 };

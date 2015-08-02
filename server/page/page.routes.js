@@ -16,6 +16,9 @@ router.get("/setup", function(req, res) {
     Page.find({}, {"url":1, "title":1, "nav":1, "type":1, "_id":0}, function(err, result){}).exec()
 
         .then(function(data){
+            if(req.user) {
+                config.user = req.user;
+            }
             config.pages = data;
             res.json(config);
         });

@@ -19,8 +19,6 @@ angular.module("expApp")
                             if(response) {
                                 if (response.data.user != false) {
                                     $rootScope.user = response.data.user;
-                                } else if (response.data.info) {
-                                    $rootScope.alerts.push(response.data.info);
                                 }
                             }
                         });

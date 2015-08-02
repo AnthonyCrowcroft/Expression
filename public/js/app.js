@@ -25,6 +25,12 @@
             $rootScope.loginState = "Login";
             $rootScope.modalState = "Edit";
         }
+        if (SetupConfig.user) {
+            $rootScope.user = SetupConfig.user;
+        }
+        else {
+            $rootScope.user = undefined;
+        }
         $rootScope.siteName = SetupConfig.siteName;
 
         $rootScope.prevent = function(evt) {

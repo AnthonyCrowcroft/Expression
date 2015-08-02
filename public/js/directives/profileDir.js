@@ -10,9 +10,13 @@ angular.module("expApp")
             templateUrl: '/html/profile-panel.html',
             controller: function($http, $rootScope) {
                 this.logout = function() {
-                    console.log("getting here");
-                    $rootScope.user = undefined;
-                    $rootScope.alerts.push({msg:"You are now logged out see you next time.", type:"info"});
+                    $http.post('/local/logout').then(function(response){
+                        if(response) {
+                            $rootScope.user = undefined;
+                        }
+                    });
+
+
 
                 };
             },
