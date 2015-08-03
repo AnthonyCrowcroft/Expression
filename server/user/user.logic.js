@@ -83,9 +83,18 @@ module.exports = function(passport) {
         });
 
     }));
+
+    var isAuthenticated = function(req, res, next) {
+        if(allgood) {
+            return next();
+        }
+        res.send("not authenticated");
+    };
 };
 
-    // TODO tidy up name input into first and last names
+    // tidy up name input into first and last names
 var nameTidy = function(name) {
-    return [name, ""];
+    var last = name.split(" ").pop();
+    var first = name.split((" " + last))[0];
+    return [first, last];
 };

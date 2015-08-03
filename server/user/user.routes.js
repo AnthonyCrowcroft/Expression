@@ -10,11 +10,13 @@ module.exports = function(app, passport) {
     app.post("/local/login", function (req, res) {
         passport.authenticate('local-login', function(err, user) {
             if(!user) {
+                console.log("Couldn't Login");
                 res.send("login failed");
             }
             if(user) {
                 req.login(user, function(err) {
                     if(!err) {
+                        console.log("User Logged In");
                         return res.json({user: req.user});
                     }
                 });
@@ -36,11 +38,7 @@ module.exports = function(app, passport) {
 
         // logout user
     app.post("/local/logout", function (req, res) {
-        req.session.destroy(function(err){
-            if(!err) {
-                res.json({message: "GoodBye"});
-            }
-        });
-
+        req.logOut();
+        res.send("Goodbye");
     });
 };

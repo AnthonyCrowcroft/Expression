@@ -14,8 +14,7 @@ angular.module("expApp")
                     if (this.user.email && this.user.password) {
                         $http.post('/local/login', {
                             "email": this.user.email,
-                            "password": this.user.password,
-                            "name": this.user.name
+                            "password": this.user.password
                         }).then(function(response){
                             if(response) {
                                 if (response.data.user != false) {
@@ -32,7 +31,8 @@ angular.module("expApp")
                         if (this.user.password == this.user.passConfirm) {
                             $http.post('/local/signup', {
                                 "email": this.user.email,
-                                "password": this.user.password
+                                "password": this.user.password,
+                                "name": this.user.name
                             }).then(function(response){
                                 if(response) {
                                     $rootScope.alerts.push(response.data);
