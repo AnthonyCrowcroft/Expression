@@ -19,8 +19,12 @@ router.get("/setup", function(req, res) {
             if(req.user) {
                 config.user = req.user;
             }
+            else {
+                config.user = undefined;
+            }
             config.pages = data;
             res.json(config);
+
         });
 });
 
