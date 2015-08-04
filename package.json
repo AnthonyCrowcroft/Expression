@@ -10,14 +10,15 @@
     "express"         : "~4.0.0",
     "mongoose"        : "~3.8.1",
     "bluebird"        : "latest",
-    "bcryptjs"          : "latest",
+    "bcryptjs"        : "latest",
     "passport"        : "latest",
     "passport-local"  : "latest",
     "connect-flash"   : "~0.1.1",
     "morgan"          : "~1.0.0",
     "body-parser"     : "~1.0.0",
     "cookie-parser"   : "~1.0.0",
-    "express-session" : "~1.0.0"
+    "express-session" : "~1.0.0",
+    "node-mailer"     : "latest"
   },
   "devDependencies" : {
     "mocha"           : "^2.1.0",
