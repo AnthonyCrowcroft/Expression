@@ -10,7 +10,7 @@
     "express"         : "~4.0.0",
     "mongoose"        : "~3.8.1",
     "bluebird"        : "latest",
-    "bcrypt"          : "latest",
+    "bcryptjs"          : "latest",
     "passport"        : "latest",
     "passport-local"  : "latest",
     "connect-flash"   : "~0.1.1",

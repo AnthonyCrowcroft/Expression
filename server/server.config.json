@@ -5,7 +5,8 @@
   "frontendConfig"    : {
     "siteName"          : "Expression",
     "users"             : true,
-    "search"            : false
+    "search"            : false,
+    "contact"           : false
   },
   "adminUsers"        : [
     {

@@ -36,9 +36,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
     // required for passport
 app.use(session({
-    secret  : 'BondrunswAterColor',
-    unset   : 'destroy'
+    secret  : 'BondrunswAterColor'
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

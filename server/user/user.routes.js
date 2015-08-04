@@ -38,7 +38,7 @@ module.exports = function(app, passport) {
 
         // logout user
     app.post("/local/logout", function (req, res) {
-        req.logOut();
-        res.send("Goodbye");
+        req.logout();
+        res.send("GoodBye");
     });
 };
