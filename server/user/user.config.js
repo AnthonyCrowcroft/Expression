@@ -1,6 +1,7 @@
 /**
  * Filename:    config.js
  * Package:     User
+ * Author:      Anthony Crowcroft
  * Created:     02/08/15.
  */
 

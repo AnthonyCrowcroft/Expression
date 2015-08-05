@@ -1,6 +1,7 @@
 /**
  * Filename:    logic.js
  * Package:     User
+ * Author:      Anthony Crowcroft
  * Created:     29/07/15.
  */
 

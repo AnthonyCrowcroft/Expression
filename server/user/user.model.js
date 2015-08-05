@@ -1,6 +1,7 @@
 /**
  * Filename:    model.js
  * Package:     User
+ * Author:      Anthony Crowcroft
  * Created:     27/07/2015
  */
 
