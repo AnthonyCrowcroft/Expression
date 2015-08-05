@@ -29,7 +29,7 @@
         <ul class="navbar-btn navbar-right login-btn" ng-hide="nav.users == false">
             <li ng-show="user !== undefined"class="btn-group" dropdown>
                 <button type="button"  class="btn btn-default dropdown-toggle login-btn-width" dropdown-toggle >
-                    User Name
+                    {{user.meta.firstName}}
                     <span class="caret"></span>
                 </button>
                 <div class="dropdown-menu" role="menu" ng-click="prevent($event)">
