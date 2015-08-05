@@ -1,94 +1,101 @@
 <div>
 
-<div class="modal-header">
-    <h3 class="modal-title">{{modalState}}</h3>
-</div>
-
-<div class="modal-body page-modal-top" ng-controller="PageManagerController">
-    <form novalidate class="form-horizontal">
-        <div class="col-md-6">
-
-            <div class="form-group">
-                <label for="title" class="control-label col-md-2">Title</label>
-                <div class="col-md-10">
-                    <input ng-model="form.title" type="text" class="form-control" id="title">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="url" class="control-label col-md-2">URL</label>
-                <div class="col-md-10">
-                    <input ng-model="form.url" type="text" class="form-control" id="url">
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="page-type" class="control-label col-md-4">Page Type</label>
-                <div class="col-md-8">
-                    <select ng-model="form.pageType" class="form-control" id="page-type">
-                        <option value="0">Plain Text</option>
-                        <option value="1">Form</option>
-                        <option value="2">Jumbotron</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="nav-link" class="control-label col-md-4">Link to Nav?</label>
-                <div class="col-md-8">
-                    <select ng-model="form.nav" class="form-control" id="nav-link">
-                        <option value="true">Yes</option>
-                        <option value="false">No</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-    </form>
-
-    <div ng-if="form.pageType=='0'">
-        <div class="form-horizontal">
-        <h3 class="modal-title">Plain Text</h3>
-            <div class="form-group">
-                <label for="plain-text-body" class="control-label col-md-2">Body</label>
-                <div class="col-md-10">
-                    <input ng-model="page.body.text" type="text" class="form-control" id="plain-text-body">
-                </div>
-            </div>
-        </div>
+    <div class="modal-header">
+        <h3 class="modal-title">{{modalState}}</h3>
     </div>
 
-    <div ng-if="form.pageType=='1'">
-        <h3 class="modal-title">Form</h3>
-        <div class="form-horizontal">
-            <div class="form-group">
-                <label for="form" class="control-label col-md-2">Body</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" id="form">
+    <div class="modal-body page-modal-top" ng-controller="PageManagerController">
+        <form novalidate class="form-horizontal">
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label for="title" class="control-label col-md-2">Title</label>
+                    <div class="col-md-10">
+                        <input ng-model="form.title" type="text" class="form-control" id="title">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="url" class="control-label col-md-2">URL</label>
+                    <div class="col-md-10">
+                        <input ng-model="form.url" type="text" class="form-control" id="url">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="page-type" class="control-label col-md-4">Page Type</label>
+                    <div class="col-md-8">
+                        <select ng-model="form.pageType" class="form-control" id="page-type">
+                            <option value="text">Text</option>
+                            <option value="form">Form</option>
+                            <option value="image">Image</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nav-link" class="control-label col-md-4">Link to Nav?</label>
+                    <div class="col-md-8">
+                        <select ng-model="form.nav" class="form-control" id="nav-link">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+
+        <div ng-if="form.pageType=='text'">
+            <div class="form-horizontal">
+                <h3 class="modal-title">Text</h3>
+
+                <div class="form-group">
+                    <label for="text-heading" class="control-label col-md-2">Heading</label>
+                    <div class="col-md-10">
+                        <input ng-model="form.text.heading" type="text" class="form-control" id="text-heading">
+                    </div>
+                </div>
+
+                <div ng-repeat="text in textFields" class="form-group">
+                    <label for="text-body" class="control-label col-md-2">Body</label>
+                    <div class="col-md-10">
+                        <input ng-model="form.text.body" type="text" class="form-control" id="text-body">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="text-class" class="control-label col-md-2">Class</label>
+                    <div class="col-md-10">
+                        <input ng-model="form.text.class" type="text" class="form-control" id="text-class">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="text-author" class="control-label col-md-2">Author</label>
+                    <div class="col-md-10">
+                        <input ng-model="form.text.author" type="text" class="form-control" id="text-author">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div ng-if="form.pageType=='2'">
-        <h3 class="modal-title">Jumbotron</h3>
-        <div class="form-horizontal">
-            <div class="form-group">
-                <label for="jumbo" class="control-label col-md-2">Body</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" id="jumbo">
-                </div>
-            </div>
+        <div ng-if="form.pageType=='form'">
+            <h3 class="modal-title text-center">Coming Soon</h3>
         </div>
+
+        <div ng-if="form.pageType=='image'">
+            <h3 class="modal-title text-center">Coming Soon</h3>
+        </div>
+
     </div>
 
-</div>
-
-<div class="modal-footer">
-    <button class="btn btn-success" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-</div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
 </div>
