@@ -2,6 +2,7 @@
  * Filename:    model.js
  * Package:     User
  * Author:      Anthony Crowcroft
+ *              Fourth Wall
  * Created:     27/07/2015
  */
 

@@ -1,6 +1,8 @@
 /**
  * Filename:    server.js
  * Package:     Core
+ * Author:      Anthony Crowcroft
+ *              Fourth Wall
  * Created:     23/02/2015
  */
 

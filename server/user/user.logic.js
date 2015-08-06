@@ -2,6 +2,7 @@
  * Filename:    logic.js
  * Package:     User
  * Author:      Anthony Crowcroft
+ *              Fourth Wall
  * Created:     29/07/15.
  */
 
