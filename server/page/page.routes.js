@@ -2,6 +2,7 @@
  * Filename:    routes.js
  * Package:     Page
  * Author:      Anthony Crowcroft
+ *              Fourth Wall
  * Created:     25/02/2015.
  */
 
@@ -20,12 +21,9 @@ router.get("/setup", function(req, res) {
             if(req.user) {
                 config.user = req.user;
             }
-            else {
-                config.user = undefined;
-            }
             config.pages = data;
             res.json(config);
-
+            config.user = undefined;
         });
 });
 

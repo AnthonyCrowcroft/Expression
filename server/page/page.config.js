@@ -2,6 +2,7 @@
  * Filename:    config.js
  * Package:     Page
  * Author:      Anthony Crowcroft
+ *              Fourth Wall
  * Created:     01/08/2015.
  */
 
