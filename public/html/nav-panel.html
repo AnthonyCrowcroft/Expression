@@ -1,14 +1,37 @@
 <nav class="navbar navbar-default" role="navigation">
+
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+        <button type="button" class="navbar-toggle pull-left" ng-init="navCollapsed == true" ng-click="navCollapsed = !navCollapsed">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" ui-sref="/home">{{nav.siteName}}</a>
+        <ul class="navbar-btn login-btn pull-right hide-on-big-screen" ng-hide="nav.users == false">
+            <li ng-show="user !== undefined"class="btn-group" dropdown>
+                <button type="button"  class="btn btn-default dropdown-toggle login-btn-width" dropdown-toggle >
+                    {{user.meta.firstName}}
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" role="menu" ng-click="prevent($event)">
+                    <profile-panel> </profile-panel>
+                </div>
+            </li>
+            <li ng-show="user === undefined" class="btn-group" dropdown>
+                <button type="button"  class="btn btn-primary dropdown-toggle login-btn-width" dropdown-toggle >
+                    {{loginState}}
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu login-dropdown" role="menu" ng-click="prevent($event)">
+                    <login-panel> </login-panel>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Will need to be changed if you want to use an image -->
+        <a class="navbar-brand navbar-" ui-sref="/home">{{nav.siteName}}</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,7 +49,7 @@
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
 
-        <ul class="navbar-btn navbar-right login-btn" ng-hide="nav.users == false">
+        <ul class="navbar-btn navbar-right login-btn hide-on-mobile" ng-hide="nav.users == false">
             <li ng-show="user !== undefined"class="btn-group" dropdown>
                 <button type="button"  class="btn btn-default dropdown-toggle login-btn-width" dropdown-toggle >
                     {{user.meta.firstName}}

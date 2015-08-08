@@ -1,4 +1,22 @@
 /* -----------------------------------*/
+/* -->>> Bootstrap media queries <<<--*/
+/* -----------------------------------*/
+
+/*
+// Landscape phones and down
+@media (max-width: 480px) { ... }
+
+// Landscape phone to portrait tablet
+@media (max-width: 768px) { ... }
+
+// Portrait tablet to landscape and desktop
+@media (min-width: 768px) and (max-width: 980px) { ... }
+
+// Large desktop
+@media (min-width: 1200px) { .. }
+*/
+
+/* -----------------------------------*/
 /* ---------->>> GLOBAL <<<-----------*/
 /* -----------------------------------*/
 
@@ -15,6 +33,24 @@ body {
 /* -----------------------------------*/
 /* ---------->>> Navbar <<<-----------*/
 /* -----------------------------------*/
+.hide-on-big-screen {
+    display: none;
+}
+
+@media (max-width: 768px){
+    .hide-on-big-screen {
+        display: inherit;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .navbar-brand {
+
+    }
+}
+
 
 /*
     #F8F8F8 : navbar background
@@ -25,70 +61,7 @@ body {
     #D5D5D5 : active background
 */
 
-.navbar-default {
-    background-color: #f8f8f8;
-    border-color:#e7e7e7;
-}
 
-/* title 'brand' */
-.navbar-default .navbar-brand {
-    color: #777;
-}
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: #5e5e5e;
-}
-
-/* links */
-.navbar-default .navbar-nav > li > a {
-    color: #777;
-}
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: #333;
-}
-
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-    color: #555;
-    background-color: #e7e7e7;
-}
-
-/* dropdowns */
-.navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top-color: #777;
-    border-bottom-color: #777;
-}
-
-.navbar-default .navbar-nav > .dropdown > a:hover .caret,
-.navbar-default .navbar-nav > .dropdown > a:focus .caret {
-    border-top-color: #333;
-    border-bottom-color: #333;
-}
-
-.navbar-default .navbar-nav > .open > a .caret,
-.navbar-default .navbar-nav > .open > a:hover .caret,
-.navbar-default .navbar-nav > .open > a:focus .caret {
-    border-top-color: #555;
-    border-bottom-color: #555;
-}
-
-/* mobile version */
-.navbar-default .navbar-toggle {
-    border-color: #DDD;
-}
-
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-    background-color: #DDD;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #CCC;
-}
 
 /* -----------------------------------*/
 /* ---------->>> Log-In <<<-----------*/
