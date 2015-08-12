@@ -1,13 +1,17 @@
 /**
- * Created by Anthony on 23/02/2015.
+ * Filename:    directive.js
+ * Package:     Nav
+ * Author:      Anthony Crowcroft
+ *              Fourth Wall
+ * Created:     23/02/2015.
  */
 
 angular.module("expApp")
-    .directive("navPanel", function(SetupConfig){
+    .directive("navTop", function(SetupConfig){
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/html/nav-panel.html',
+            templateUrl: '/app/nav/nav.html',
             controller: function() {
                 this.siteName = SetupConfig.siteName;
                 this.search = SetupConfig.search;
@@ -23,4 +27,3 @@ angular.module("expApp")
             controllerAs: 'nav'
         };
     });
-

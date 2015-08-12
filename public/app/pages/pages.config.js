@@ -1,5 +1,9 @@
 /**
- * Created by Anthony on 27/02/2015.
+ * Filename:    config.js
+ * Package:     Pages
+ * Author:      Anthony Crowcroft
+ *              Fourth Wall
+ * Created:     27/02/2015.
  */
 
 angular.module("expApp")
@@ -10,7 +14,7 @@ angular.module("expApp")
             if (page.type == "home"){
                 $stateProvider.state('/home', {
                     url: "/home",
-                    templateUrl: "/html/pages/home.html",
+                    templateUrl: "./app/pages/home/home.html",
                     resolve:{
                         homeData: function($http) {
                             var location = "/pages/home";

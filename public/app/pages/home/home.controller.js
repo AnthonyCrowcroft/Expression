@@ -1,5 +1,9 @@
 /**
- * Created by Anthony on 4/03/2015.
+ * Filename:    controller.js
+ * Package:     Pages > Home
+ * Author:      Anthony Crowcroft
+ *              Fourth Wall
+ * Created:     04/03/2015.
  */
 
 angular.module("expApp")

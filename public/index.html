@@ -5,42 +5,32 @@
     <meta charset="UTF-8">
     <title ng-bind="siteName"></title>
 
-    <script type="text/javascript" src="./lib/angular.min.js"></script>
-    <script type="text/javascript" src="./lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
-    <script type="text/javascript" src="./lib/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 </head>
 
 <body>
-    <nav-panel> </nav-panel>
+    <nav-top> </nav-top>
     <div ui-view> </div>
-    <message-panel> </message-panel>
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">Footer space doing basically as of yet unused.</p>
-        </div>
-        <div class="btn-group page-button" ng-show="user != undefined" ng-controller="PageManagerController as modalManager">
-            <button class="btn btn-default width-third" ng-click="modalManager.create()"> Create </button>
-            <button class="btn btn-default width-third" ng-click="modalManager.edit()"> Edit </button>
-            <button class="btn btn-default width-third" ng-click="modalManager.delete()"> Delete </button>
-        </div>
+    <footer-bar> </footer-bar>
 
-    </footer>
-
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/directives/navDir.js"></script>
-    <script type="text/javascript" src="js/directives/loginDir.js"></script>
-    <script type="text/javascript" src="js/directives/messageDir.js"></script>
-    <script type="text/javascript" src="js/directives/profileDir.js"></script>
-    <script type="text/javascript" src="js/directives/pageDir.js"></script>
-    <script type="text/javascript" src="js/routes/pageRts.js"></script>
-    <script type="text/javascript" src="js/controller/pageCtlr.js"></script>
-    <script type="text/javascript" src="js/controller/homeCtlr.js"></script>
-    <script type="text/javascript" src="js/controller/pageManagerCtlr.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="./app/nav/nav.directive.js"></script>
+    <script type="text/javascript" src="./app/footer/footer.directive.js"></script>
+    <script type="text/javascript" src="./app/users/login/login.directive.js"></script>
+    <script type="text/javascript" src="./app/users/profile/profile.directive.js"></script>
+    <script type="text/javascript" src="./app/modals/contents/create/create.directive.js"></script>
+    <script type="text/javascript" src="./app/modals/contents/delete/delete.directive.js"></script>
+    <script type="text/javascript" src="./app/modals/contents/contents.controller.js"></script>
+    <script type="text/javascript" src="./app/pages/pages.config.js"></script>
+    <script type="text/javascript" src="./app/pages/pages.controller.js"></script>
+    <script type="text/javascript" src="./app/pages/home/home.controller.js"></script>
 </body>
 
 </html>

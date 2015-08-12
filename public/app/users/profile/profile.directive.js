@@ -1,13 +1,18 @@
 /**
- * Created by Anthony on 12/03/2015.
+ * Filename:    directive.js
+ * Package:     Users > Profile
+ * Author:      Anthony Crowcroft
+ *              Fourth Wall
+ * Created:     12/03/2015.
  */
+
 
 angular.module("expApp")
     .directive("profilePanel", function(){
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/html/profile-panel.html',
+            templateUrl: '/app/users/profile/profile.html',
             controller: function($http, $rootScope) {
                 this.logout = function() {
                     $http.post('/local/logout').then(function(response){
@@ -15,8 +20,6 @@ angular.module("expApp")
                             $rootScope.user = undefined;
                         }
                     });
-
-
 
                 };
             },

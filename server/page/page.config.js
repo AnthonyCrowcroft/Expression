@@ -21,7 +21,7 @@ module.exports = function() {
                 "content" : [
                     {
                     "id"        : "para01",
-                    "heading"   : "Welcome to Your new Home Page",
+                    "heading"   : "Welcome to your new Home Page",
                     "body"      : "This is a seed application intended to be customisable and expanded to create a dynamic site for all situations",
                     "class"     : "jumbotron",
                     "author"    : "Administration"

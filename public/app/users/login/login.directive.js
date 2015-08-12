@@ -1,5 +1,9 @@
 /**
- * Created by Anthony on 25/02/2015.
+ * Filename:    directive.js
+ * Package:     Users > Login
+ * Author:      Anthony Crowcroft
+ *              Fourth Wall
+ * Created:     25/02/2015.
  */
 
 angular.module("expApp")
@@ -7,7 +11,7 @@ angular.module("expApp")
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/html/login-panel.html',
+            templateUrl: '/app/users/login/login.html',
             controller: function($http, $rootScope){
                 this.user = {};
                 this.signIn = function(){

@@ -1,5 +1,9 @@
 /**
- * Created by Anthony on 23/02/2015.
+ * Filename:    directive.js
+ * Package:     Alert
+ * Author:      Anthony Crowcroft
+ *              Fourth Wall
+ * Created:     23/02/2015.
  */
 
 angular.module("expApp")
@@ -7,7 +11,7 @@ angular.module("expApp")
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/html/message-panel.html',
+            templateUrl: './app/alert/alert.html',
             controller: function($rootScope) {
                 $rootScope.alerts = [];
 
