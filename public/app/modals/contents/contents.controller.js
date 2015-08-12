@@ -11,12 +11,12 @@ angular.module("expApp")
 
         // External functions
         this.create = function(){
-            $rootScope.modalState = "Create";
+            $rootScope.createState = "Create";
             this.createModal('lg');
         };
 
         this.edit = function(){
-            $rootScope.modalState = "Edit";
+            $rootScope.createState = "Edit";
             this.createModal('lg');
         };
 
@@ -67,6 +67,6 @@ angular.module("expApp")
         };
 
         //Where the forms in the modal input data
-        $rootScope.form = {};
+
 
         });

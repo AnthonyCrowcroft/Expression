@@ -7,10 +7,39 @@
  */
 
 angular.module("expApp")
-    .directive("contentCreate", function() {
+    .directive("contentCreate", function($rootScope) {
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/app/modals/contents/create/create.html'
+            templateUrl: '/app/modals/contents/create/create.html',
+            controller: function(){
+                if($rootScope.createState == "Edit") {
+                    this.form = angular.copy($rootScope.currentPage);
+                }
+                else {
+                    this.form = {
+                        content: [{
+                            heading: null,
+                            body: null,
+                            class: null,
+                            author: $rootScope.user.firstName
+                        }]
+                    };
+                }
+                this.addContent = function(id) {
+                    this.form.content.splice(this.form.content.indexOf(id) + 1, 0,{
+                        heading: null,
+                        body: null,
+                        class: null,
+                        author: $rootScope.user.firstName
+                    });
+                };
+                this.removeContent = function(id) {
+                    if (this.form.content.length > 1) {
+                        this.form.content.splice(this.form.content.indexOf(id), 1);
+                    }
+                };
+            },
+            controllerAs: 'create'
 
         }});

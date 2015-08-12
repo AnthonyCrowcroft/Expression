@@ -1,7 +1,7 @@
-<div ng-repeat="data in home.data.content">
-    <div class= "{{data.class}} col-md-6 col-md-offset-3 well-lg" >
-        <h2> {{data.heading}} </h2>
-        <p> {{data.body}} </p>
-        <p><em> {{data.author}} </em></p>
+<div ng-repeat="item in home.data.content">
+    <div class= "{{item.class}} col-md-6 col-md-offset-3 well-lg" >
+        <h2> {{item.heading}} </h2>
+        <p> {{item.body}} </p>
+        <p><em> {{item.author}} </em></p>
     </div>
 </div>
