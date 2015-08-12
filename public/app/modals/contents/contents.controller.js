@@ -43,7 +43,7 @@ angular.module("expApp")
                     keyboard: false,
                     scope: createScope
                 }
-            );
+            )};
 
         this.deleteModal = function (size) {
             var modalDelete;
@@ -66,9 +66,7 @@ angular.module("expApp")
             );
         };
 
-            //Where the forms in the modal input data
+        //Where the forms in the modal input data
+        $rootScope.form = {};
 
-
-        };
-
-    });
+        });
