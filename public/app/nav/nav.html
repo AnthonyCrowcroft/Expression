@@ -2,12 +2,9 @@
 
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle pull-left" ng-init="navCollapsed == true" ng-click="navCollapsed = !navCollapsed">
+        <i type="button" class="fa fa-bars fa-2x navbar-nav btn pull-left" ng-init="navCollapsed == true" ng-click="navCollapsed = !navCollapsed">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+        </i>
 
         <ul class="navbar-btn login-btn pull-right hide-on-big-screen" ng-hide="nav.users == false">
             <li ng-show="user !== undefined"class="btn-group" dropdown>
@@ -31,7 +28,7 @@
         </ul>
 
         <!-- Will need to be changed if you want to use an image -->
-        <a class="navbar-brand navbar-" ui-sref="/home">{{nav.siteName}}</a>
+        <a class="navbar-brand navbar-nav" ui-sref="/home">{{nav.siteName}}</a>
     </div>
 
     <!-- Collect the nav links, forms, and other contents for toggling -->
