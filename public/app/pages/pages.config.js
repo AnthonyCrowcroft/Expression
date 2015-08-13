@@ -10,8 +10,6 @@ angular.module("expApp")
     .config(function(SetupConfig, $stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/home");
 
-        angular.forEach(SetupConfig.pages, function(page) {
-            if (page.type == "home"){
                 $stateProvider.state('/home', {
                     url: "/home",
                     templateUrl: "./app/pages/home/home.html",
@@ -24,7 +22,8 @@ angular.module("expApp")
                     controller: "HomeController as home"
                 });
 
-            } else{
+        angular.forEach(SetupConfig.pages, function(page) {
+             if (page.type != 'home') {
                 $stateProvider.state("/" + page.url, {
                     url: "/" + page.url,
                     templateUrl: "/html/pages/" + page.type + ".html",
