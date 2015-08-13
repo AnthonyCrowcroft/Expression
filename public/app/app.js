@@ -1,6 +1,6 @@
 (function() {
     var app = angular
-        .module("expApp", ['ui.bootstrap', 'ui.router'])
+        .module("expApp", ['ui.bootstrap', 'ui.router', 'ct.ui.router.extras'])
             .config(function($locationProvider) {
                 $locationProvider.html5Mode({
                     enabled: true
