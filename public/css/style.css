@@ -47,10 +47,8 @@ body {
     }
 
     .navbar-brand {
-
     }
 }
-
 
 /*
     #F8F8F8 : navbar background
@@ -166,24 +164,15 @@ div.navbar-collapse.collapse.in {
     border-radius: 6px;
     outline: 0 none;
 }
-/* -----------------------------------*/
-/* --------->>>  Other  <<<-----------*/
-/* -----------------------------------*/
 
-.message-panel {
-    position: absolute;
-    bottom: 60px;
-
-}
-.footer {
-    position: absolute;
-    bottom: 0;
+.page-modal-top {
+    display: inline-block;
     width: 100%;
-    /* Set the fixed height of the footer here */
-    min-height: 60px;
-    background-color: #f5f5f5;
-    border: 1px solid #e7e7e7;
 }
+
+/* -----------------------------------*/
+/* --------->>>  Footer  <<<----------*/
+/* -----------------------------------*/
 
 .container {
     width: auto;
@@ -201,7 +190,24 @@ div.navbar-collapse.collapse.in {
     margin: 20px 0;
 }
 
-.page-modal-top {
-    display: inline-block;
+.footer {
+    position: absolute;
+    bottom: 0;
     width: 100%;
+    /* Set the fixed height of the footer here */
+    min-height: 60px;
+    background-color: #f5f5f5;
+    border: 1px solid #e7e7e7;
 }
+
+/* -----------------------------------*/
+/* --------->>>  Alerts  <<<----------*/
+/* -----------------------------------*/
+
+.message-panel {
+    position: absolute;
+    bottom: 60px;
+}
+/* -----------------------------------*/
+/* --------->>>  Other  <<<-----------*/
+/* -----------------------------------*/

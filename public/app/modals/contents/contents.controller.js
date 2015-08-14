@@ -65,8 +65,4 @@ angular.module("expApp")
                 }
             );
         };
-
-        //Where the forms in the modal input data
-
-
-        });
+    });

@@ -97,7 +97,7 @@
     </div>
 
     <div class="modal-footer">
-        <button class="btn btn-success" ng-click="create.createPage()">Create</button>
+        <button ng-if="createState=='Create'" class="btn btn-success" ng-click="create.createPage()">Create</button>
         <button class="btn btn-success" ng-click="ok()">OK</button>
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>

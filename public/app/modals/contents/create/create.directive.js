@@ -46,5 +46,4 @@ angular.module("expApp")
                 };
             },
             controllerAs: 'create'
-
         }});

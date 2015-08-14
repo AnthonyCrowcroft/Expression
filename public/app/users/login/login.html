@@ -1,5 +1,6 @@
 <div class="login-panel" >
-    <form name="userForm">
+
+    <form name="userForm" ng-submit="login.signIn()">
         <div class="form-group">
             <input type="email" class="form-control" name="email" ng-model="login.user.email" placeholder="Email Address">
             <p ng-show="userForm.email.$invalid && userForm.email.$dirty"  ng-hide="userForm.email.$pristine" class="help-block">Email address is invalid</p>
@@ -8,21 +9,24 @@
             <input type="text" class="form-control" ng-model="login.user.name" placeholder="Name" ng-hide="loginState=='Login'">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" ng-model="login.user.password" placeholder="Password">
+            <input type="password" class="form-control" ng-enter="login.signIn()" ng-model="login.user.password" placeholder="Password">
         </div>
         <div class="form-group">
             <input type="password" class="form-control" ng-model="login.user.passConfirm" placeholder="Confirm Password" ng-hide="loginState=='Login'">
         </div>
     </form>
+
     <li class="divider"></li>
+
     <div>
         <div class="login-btn-block" ng-hide="loginState=='Register'">
             <button class="btn btn-default login-form-btn" ng-click="loginState = 'Register'"> Register Now </button>
-            <button class="btn btn-success login-form-btn" ng-click="login.signIn()"> Login Now </button>
+            <button class="btn btn-success login-form-btn" ng-enter="login.signIn()" ng-click="login.signIn()"> Login Now </button>
         </div>
         <div class="login-btn-block" ng-hide="loginState=='Login'">
             <button class="btn btn-default login-form-btn" ng-click="loginState = 'Login'"> Existing User </button>
             <button class="btn btn-success login-form-btn" ng-click="login.signUp()"> Sign Up </button>
         </div>
     </div>
+
 </div>
