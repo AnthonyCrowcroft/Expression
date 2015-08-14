@@ -33,9 +33,13 @@ router.post("/pages/:id", function(req, res) {
 
         .then(function(data) {
             if(!data) {
-                var newPage = new Page();
-                console.log(req.data);
-                res.send("Create page here");
+                console.log(req.body);
+                var newPage = new Page(req.body);
+                newPage.save(function(err) {
+                    if(!err) {
+                        res.send("Page created ");
+                    }
+                });
             }
             if(data) {
                 res.send("Page already exists sorry try again");

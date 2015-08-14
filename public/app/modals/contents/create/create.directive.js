@@ -7,7 +7,7 @@
  */
 
 angular.module("expApp")
-    .directive("contentCreate", function($rootScope) {
+    .directive("contentCreate", function($rootScope, $http) {
         return {
             restrict: 'E',
             replace: true,
@@ -38,6 +38,11 @@ angular.module("expApp")
                     if (this.form.content.length > 1) {
                         this.form.content.splice(this.form.content.indexOf(id), 1);
                     }
+                };
+                this.createPage = function() {
+                    $http.post('/pages/' + this.form.url, this.form).then(function(response) {
+                        console.log(response.data);
+                    });
                 };
             },
             controllerAs: 'create'

@@ -21,14 +21,15 @@ angular.module("expApp")
                     },
                     controller: "HomeController as home"
                 });
-
+        console.log(SetupConfig);
         angular.forEach(SetupConfig.pages, function(page) {
              if (page.type != 'home') {
                 $stateProvider.state("/" + page.url, {
                     url: "/" + page.url,
-                    templateUrl: "/html/pages/" + page.type + ".html",
+                    templateUrl: "./app/pages/" + page.type + "/" + page.type +  ".html",
                     resolve:{
                         pageData: function($http) {
+                            console.log( "./app/pages/" + page.type + "/" + page.type +  ".html");
                             var location = "/pages/" + page.url;
                             return $http.get(location);
                         }

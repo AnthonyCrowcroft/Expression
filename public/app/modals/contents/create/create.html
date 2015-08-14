@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label for="page-type" class="control-label col-md-4">Page Type</label>
                     <div class="col-md-8">
-                        <select ng-model="create.form.pageType" class="form-control" id="page-type">
+                        <select ng-model="create.form.type" class="form-control" id="page-type">
                             <option value="text">Text</option>
                             <option value="form">Form</option>
                             <option value="image">Image</option>
@@ -51,7 +51,7 @@
 
 
 
-        <div ng-if="create.form.pageType=='text'">
+        <div ng-if="create.form.type=='text'">
             <h3 class="modal-title">Text</h3>
             <div ng-repeat="item in create.form.content" class="form-horizontal well">
                 <div class="form-group">
@@ -86,17 +86,18 @@
             </div>
         </div>
 
-        <div ng-if="create.form.pageType=='form'">
+        <div ng-if="create.form.type=='form'">
             <h3 class="modal-title text-center">Coming Soon</h3>
         </div>
 
-        <div ng-if="create.form.pageType=='image'">
+        <div ng-if="create.form.type=='image'">
             <h3 class="modal-title text-center">Coming Soon</h3>
         </div>
 
     </div>
 
     <div class="modal-footer">
+        <button class="btn btn-success" ng-click="create.createPage()">Create</button>
         <button class="btn btn-success" ng-click="ok()">OK</button>
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
