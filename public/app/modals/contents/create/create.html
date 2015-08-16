@@ -5,14 +5,13 @@
     </div>
 
     <div class="modal-body page-modal-top">
-        <form ng-hide="create.form.type=='home'" novalidate class="form-horizontal">
+        <form ng-hide="create.form.type=='home' || create.form.type=='contact'" novalidate class="form-horizontal">
 
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="title" class="control-label col-md-2">Title</label>
+                    <label class="control-label col-md-2">Title</label>
                     <div class="col-md-10">
-                        <input ng-model="create.form.title" type="text" class="form-control" id="title" required>
-                        <p ng-show="create.form.title.$invalid && !create.form.title.$pristine" class="help-block">You name is required.</p>
+                        <input ng-model="create.form.title" type="text" class="form-control" required>
                     </div>
                 </div>
 
@@ -26,11 +25,10 @@
 
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="page-type" class="control-label col-md-4">Page Type</label>
+                    <label class="control-label col-md-4">Page Type</label>
                     <div class="col-md-8">
-                        <select ng-model="create.form.type" class="form-control" id="page-type" required>
+                        <select ng-model="create.form.type" class="form-control" required>
                             <option value="text">Text</option>
-                            <option ng-hide="create.form.type != 'home'" value="home">Home</option>
                             <option value="form">Form</option>
                             <option value="image">Image</option>
                         </select>
@@ -38,9 +36,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nav-link" class="control-label col-md-4">Link to Nav?</label>
+                    <label class="control-label col-md-4">Link to Nav?</label>
                     <div class="col-md-8">
-                        <select ng-model="create.form.nav" class="form-control" id="nav-link" required>
+                        <select ng-model="create.form.nav" class="form-control" required>
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </select>
@@ -56,36 +54,65 @@
             <h3 class="modal-title text-capitalize">{{create.form.type}}</h3>
             <div ng-repeat="item in create.form.content" class="form-horizontal well">
                 <div class="form-group">
-                    <label for="text-heading" class="control-label col-md-2"> Heading </label>
+                    <label class="control-label col-md-2"> Heading </label>
                     <div class="col-md-10">
-                        <input ng-model="item.heading" type="text" class="form-control" id="text-heading">
+                        <input ng-model="item.heading" type="text" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="text-body" class="control-label col-md-2">Body</label>
+                    <label class="control-label col-md-2">Body</label>
                     <div class="col-md-10">
-                        <textarea rows="6" ng-model="item.body" class="form-control modal-textarea" id="text-body"></textarea>
+                        <textarea rows="6" ng-model="item.body" class="form-control modal-textarea"></textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="text-class" class="control-label col-md-2">Class</label>
+                    <label class="control-label col-md-2">Class</label>
                     <div class="col-md-10">
-                        <input ng-model="item.class" type="text" class="form-control" id="text-class">
+                        <input ng-model="item.class" type="text" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="text-author" class="control-label col-md-2">Author</label>
+                    <label class="control-label col-md-2">Author</label>
                     <div class="col-md-10">
-                        <input ng-model="item.author" type="text" class="form-control" id="text-author">
+                        <input ng-model="item.author" type="text" class="form-control">
                     </div>
                 </div>
                 <i class="fa fa-plus-circle fa-2x btn" ng-click="create.addContent(item)"> </i>
                 <i class="fa fa-minus-circle fa-2x btn" ng-click="create.removeContent(item)"> </i>
             </div>
         </div>
+
+        <div ng-if="create.form.type=='contact'">
+            <h3 class="modal-title text-capitalize">{{create.form.type}}</h3>
+            <div ng-repeat="item in create.form.content" class="form-horizontal well">
+                <div class="form-group">
+                    <label class="control-label col-md-2"> Type </label>
+                    <div class="col-md-10">
+                        <input ng-model="item.id" type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Display</label>
+                    <div class="col-md-10">
+                        <input ng-model="item.heading" type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Link</label>
+                    <div class="col-md-10">
+                        <input ng-model="item.url" type="text" class="form-control">
+                    </div>
+                </div>
+                <i class="fa fa-plus-circle fa-2x btn" ng-click="create.addContent(item)"> </i>
+                <i class="fa fa-minus-circle fa-2x btn" ng-click="create.removeContent(item)"> </i>
+            </div>
+        </div>
+
 
         <div ng-if="create.form.type=='form'">
             <h3 class="modal-title text-center">Coming Soon</h3>
