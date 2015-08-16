@@ -1,16 +1,25 @@
-<div>
+<div xmlns="http://www.w3.org/1999/html">
 
     <div class="modal-header">
         <h3 class="modal-title">Delete</h3>
     </div>
 
-        <div class="modal-body">
-            <h4>Are you sure you want to delete the current page?</h4>
+    <div class="modal-body page-modal-top">
+        <h4>Are you sure you want to delete the current page?</h4>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Password</label>
+            <div class="col-md-9">
+                <input type="password" ng.model="this.password" class="form-control">
+                <p class="help-block">Confirm password in order to delete this page.</p>
+            </div>
         </div>
 
-        <div class="modal-footer">
-            <button class="btn btn-success">Yes</button>
-            <button class="btn btn-warning" ng-click="cancel()">No</button>
-        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success">Yes</button>
+        <button class="btn btn-warning" ng-click="cancel()">No</button>
+    </div>
 
 </div>
