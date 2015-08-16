@@ -6,7 +6,7 @@
     "siteName"          : "Expression",
     "users"             : true,
     "search"            : false,
-    "contact"           : false
+    "contact"           : true
   },
   "adminUsers"        : [
     {

@@ -27,24 +27,26 @@ router.get("/setup", function(req, res) {
         });
 });
 
-    // TODO create page data
+    // create page data
 router.post("/pages/:id", function(req, res) {
-    Page.findOne({"url": req.params.id}, function(err, result){}).exec()
+    if(req.body.type && req.body.url && req.body.title && req.body.nav) {
 
-        .then(function(data) {
-            if(!data) {
-                console.log(req.body);
-                var newPage = new Page(req.body);
-                newPage.save(function(err) {
-                    if(!err) {
-                        res.send("Page created ");
-                    }
-                });
-            }
-            if(data) {
-                res.send("Page already exists sorry try again");
-            }
-        });
+        Page.findOne({"url": req.params.id}, function(err, result){}).exec()
+
+            .then(function(data) {
+                if(!data) {
+                    var newPage = new Page(req.body);
+                    newPage.save(function(err) {
+                        if(!err) {
+                            res.send("Page created ");
+                        }
+                    });
+                }
+                if(data) {
+                    res.send("Page already exists sorry try again");
+                }
+            });
+    }
 });
 
     // serve page data

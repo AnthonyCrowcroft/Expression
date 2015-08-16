@@ -10,17 +10,31 @@ angular.module("expApp")
     .config(function(SetupConfig, $stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/home");
 
-                $stateProvider.state('/home', {
-                    url: "/home",
-                    templateUrl: "./app/pages/home/home.html",
-                    resolve:{
-                        homeData: function($http) {
-                            var location = "/pages/home";
-                            return $http.get(location);
-                        }
-                    },
-                    controller: "HomeController as home"
-                });
+        $stateProvider.state('/home', {
+            url: "/home",
+            templateUrl: "./app/pages/home/home.html",
+            resolve:{
+                homeData: function($http) {
+                    var location = "/pages/home";
+                    return $http.get(location);
+                }
+            },
+            controller: "HomeController as home"
+        });
+
+        if (SetupConfig.contact) {
+            $stateProvider.state('/contact', {
+                url: "/contact",
+                templateUrl: "./app/pages/contact/contact.html",
+                //resolve: {
+                //    contactData: function ($http) {
+                //        var location = "/pages/contact";
+                //        return $http.get(location);
+                //    }
+                //},
+                controller: "ContactController as contact"
+            });
+        }
         console.log(SetupConfig);
         angular.forEach(SetupConfig.pages, function(page) {
              if (page.type != 'home' && page.type != 'contact') {
