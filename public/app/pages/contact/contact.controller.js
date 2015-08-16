@@ -7,9 +7,9 @@
  */
 
 angular.module("expApp")
-    .controller("ContactController", function($location, $rootScope, $http, contactData){
+    .controller("ContactController", function($location, $rootScope, $http){
 
-        this.data = contactData.data;
-        $rootScope.currentPage = contactData.data;
+        //this.data = contactData.data;
+        //$rootScope.currentPage = contactData.data;
 
     });

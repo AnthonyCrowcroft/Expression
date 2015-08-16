@@ -1,6 +1,6 @@
-<div class="login-panel" >
+<div class="login-panel">
 
-    <form name="userForm" ng-submit="login.signIn()">
+    <form name="userForm" ng-submit="login.submit()">
         <div class="form-group">
             <input type="email" class="form-control" name="email" ng-model="login.user.email" placeholder="Email Address">
             <p ng-show="userForm.email.$invalid && userForm.email.$dirty"  ng-hide="userForm.email.$pristine" class="help-block">Email address is invalid</p>
@@ -14,19 +14,17 @@
         <div class="form-group">
             <input type="password" class="form-control" ng-model="login.user.passConfirm" placeholder="Confirm Password" ng-hide="loginState=='Login'">
         </div>
+
+        <div class="login-btn-block" ng-click="prevent($event)" ng-hide="loginState=='Register'">
+            <input class="btn btn-success width-full" type="submit" id="login" value="Login" />
+            <button class="btn btn-default login-form-btn" ng-click="loginState = 'Register'"> Don't have an account?</button>
+            <button class="btn btn-default login-form-btn"> Forgotten password?</button>
+        </div>
+        <div class="btn-group width-full" ng-click="prevent($event)" ng-hide="loginState=='Login'">
+            <input class="btn signup-btn btn-success" type="submit" id="signUp" value="Sign Up" />
+            <i class="btn signup-back-btn btn-default fa fa-chevron-left" ng-click="loginState = 'Login'"></i>
+        </div>
+
     </form>
-
-    <li class="divider"></li>
-
-    <div>
-        <div class="login-btn-block" ng-hide="loginState=='Register'">
-            <button class="btn btn-default login-form-btn" ng-click="loginState = 'Register'"> Register Now </button>
-            <button class="btn btn-success login-form-btn" ng-enter="login.signIn()" ng-click="login.signIn()"> Login Now </button>
-        </div>
-        <div class="login-btn-block" ng-hide="loginState=='Login'">
-            <button class="btn btn-default login-form-btn" ng-click="loginState = 'Login'"> Existing User </button>
-            <button class="btn btn-success login-form-btn" ng-click="login.signUp()"> Sign Up </button>
-        </div>
-    </div>
 
 </div>

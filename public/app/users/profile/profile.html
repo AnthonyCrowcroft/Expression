@@ -7,7 +7,7 @@
         <p> {{user.meta.firstName}} </p>
         <p> {{user.meta.lastName}}  </p>
         <p>{{user.local.email}}</p>
-        <p> {{user.meta.created}} </p>
+        <p> <em>Signed Up: </em>{{user.meta.created | date: "d MMMM yyyy"}} </p>
         <li class="divider"></li>
         <div class="btn-group width-full">
             <button class="btn btn-default width-half" > Edit </button>
