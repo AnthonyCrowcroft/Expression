@@ -50,9 +50,19 @@ module.exports = function() {
                     "type"    : "contact",
                     "content" : [
                         {
-                            "id"        : "Type of Detail",
-                            "heading"   : "Visual Representation",
-                            "body"      : "Link"
+                            "id"        : "phone",
+                            "heading"   : "(021) 746 6366",
+                            "body"      : ""
+                        },
+                        {
+                            "id"        : "facebook",
+                            "heading"   : "Facebook Account",
+                            "body"      : "www.facebook.com"
+                        },
+                        {
+                            "id"        : "twitter",
+                            "heading"   : "@twitterAccount",
+                            "body"      : "www.twitter.com"
                         }
                     ]
                 });

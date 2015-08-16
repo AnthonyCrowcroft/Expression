@@ -53,6 +53,11 @@ require("./user/user.config")();
 app.use("/", require("./page/page.routes"));
 require("./user/user.routes")(app, passport);
 
+    // contact routes
+if(config.frontendConfig.contact) {
+    app.use("/", require("./contact/contact.routes"));
+}
+
     // static routes
 var path            = require('path');
 var staticPath = path.resolve(__dirname, './../', 'public');

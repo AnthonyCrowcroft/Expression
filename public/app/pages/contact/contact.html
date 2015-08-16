@@ -37,9 +37,9 @@
 
     <div class="col-md-6">
         <ul class="well">
-            <li><i class="fa fa-phone fa-2x contact-icon-margin"></i>(06) 123 4567</li>
-            <li><i class="fa fa-facebook-official fa-2x contact-icon-margin"></i>FacebookAccount</li>
-            <li><i class="fa fa-twitter fa-2x contact-icon-margin"></i>@TwitterHandle</li>
+            <li ng-repeat="item in contact.data.content">
+                <a href="{{item.body}}"> {{item.heading}} </a>
+            </li>
         </ul>
 
         <canvas class="width-full map-holder"></canvas>

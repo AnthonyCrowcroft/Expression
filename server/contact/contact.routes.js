@@ -10,6 +10,9 @@ var Express = require("express");
 
 var router = Express.Router();
 
-
+        // TODO contact route to send
+    router.post("/contact", function(req, res) {
+       res.send("To be implemented");
+    });
 
 module.exports = router;
