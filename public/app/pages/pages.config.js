@@ -26,12 +26,12 @@ angular.module("expApp")
             $stateProvider.state('/contact', {
                 url: "/contact",
                 templateUrl: "./app/pages/contact/contact.html",
-                //resolve: {
-                //    contactData: function ($http) {
-                //        var location = "/pages/contact";
-                //        return $http.get(location);
-                //    }
-                //},
+                resolve: {
+                    contactData: function ($http) {
+                        var location = "/pages/contact";
+                        return $http.get(location);
+                    }
+                },
                 controller: "ContactController as contact"
             });
         }
