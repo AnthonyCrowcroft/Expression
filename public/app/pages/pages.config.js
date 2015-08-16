@@ -23,7 +23,7 @@ angular.module("expApp")
                 });
         console.log(SetupConfig);
         angular.forEach(SetupConfig.pages, function(page) {
-             if (page.type != 'home') {
+             if (page.type != 'home' && page.type != 'contact') {
                 $stateProvider.state("/" + page.url, {
                     url: "/" + page.url,
                     templateUrl: "./app/pages/" + page.type + "/" + page.type +  ".html",

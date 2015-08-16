@@ -15,6 +15,7 @@ angular.module("expApp")
             controller: function() {
                 this.siteName = SetupConfig.siteName;
                 this.search = SetupConfig.search;
+                this.contact = SetupConfig.contact;
                 this.users = SetupConfig.users;
                 var pages = [];
                 angular.forEach(SetupConfig.pages, function (page) {

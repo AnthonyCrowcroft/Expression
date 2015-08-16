@@ -34,6 +34,11 @@
     <!-- Collect the nav links, forms, and other contents for toggling -->
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
         <ul class="nav navbar-nav">
+            <li ui-sref-active="active">
+                <a ui-sref="{{'/' + contact.url}}">{{contact.title}}</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav">
             <li ui-sref-active="active" ng-repeat="page in nav.pages">
                 <a ui-sref="{{'/' + page.url}}">{{page.title}}</a>
             </li>

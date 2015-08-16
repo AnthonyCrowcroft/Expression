@@ -5,20 +5,21 @@
     </div>
 
     <div class="modal-body page-modal-top">
-        <form novalidate class="form-horizontal">
+        <form ng-hide="create.form.type=='home'" novalidate class="form-horizontal">
             <div class="col-md-6">
 
                 <div class="form-group">
                     <label for="title" class="control-label col-md-2">Title</label>
                     <div class="col-md-10">
-                        <input ng-model="create.form.title" type="text" class="form-control" id="title">
+                        <input ng-model="create.form.title" type="text" class="form-control" id="title" required>
+                        <p ng-show="create.form.title.$invalid && !create.form.title.$pristine" class="help-block">You name is required.</p>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="url" class="control-label col-md-2">URL</label>
                     <div class="col-md-10">
-                        <input ng-model="create.form.url" type="text" class="form-control" id="url">
+                        <input ng-model="create.form.url" type="text" class="form-control" id="url" required>
                     </div>
                 </div>
 
@@ -28,8 +29,9 @@
                 <div class="form-group">
                     <label for="page-type" class="control-label col-md-4">Page Type</label>
                     <div class="col-md-8">
-                        <select ng-model="create.form.type" class="form-control" id="page-type">
+                        <select ng-model="create.form.type" class="form-control" id="page-type" required>
                             <option value="text">Text</option>
+                            <option ng-hide="create.form.type != 'home'" value="home">Home</option>
                             <option value="form">Form</option>
                             <option value="image">Image</option>
                         </select>
@@ -39,7 +41,7 @@
                 <div class="form-group">
                     <label for="nav-link" class="control-label col-md-4">Link to Nav?</label>
                     <div class="col-md-8">
-                        <select ng-model="create.form.nav" class="form-control" id="nav-link">
+                        <select ng-model="create.form.nav" class="form-control" id="nav-link" required>
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </select>
@@ -51,8 +53,8 @@
 
 
 
-        <div ng-if="create.form.type=='text'">
-            <h3 class="modal-title">Text</h3>
+        <div ng-if="create.form.type=='text' || create.form.type=='home'">
+            <h3 class="modal-title text-capitalize">{{create.form.type}}</h3>
             <div ng-repeat="item in create.form.content" class="form-horizontal well">
                 <div class="form-group">
                     <label for="text-heading" class="control-label col-md-2"> Heading </label>

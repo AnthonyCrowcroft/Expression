@@ -10,6 +10,6 @@ angular.module("expApp")
     .controller("PageController", function($location, $rootScope, $http, pageData){
 
         this.data = pageData.data;
-        //$rootScope.currentPage = pageData.data;
+        $rootScope.currentPage = pageData.data;
 
     });
