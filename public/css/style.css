@@ -30,6 +30,16 @@ body {
     margin-bottom: 60px;
 }
 
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+}
+
 /* -----------------------------------*/
 /* ---------->>> Navbar <<<-----------*/
 /* -----------------------------------*/
@@ -171,6 +181,20 @@ div.navbar-collapse.collapse.in {
 }
 
 /* -----------------------------------*/
+/* -------->>>  Contact  <<<----------*/
+/* -----------------------------------*/
+
+.contact-icon-margin {
+    margin: 0 10px 5px 0;
+    vertical-align: middle;
+}
+
+/*TODO */
+.map-holder {
+    background-color: #0b97c4;
+}
+
+/* -----------------------------------*/
 /* --------->>>  Modal  <<<-----------*/
 /* -----------------------------------*/
 
@@ -190,6 +214,10 @@ div.navbar-collapse.collapse.in {
 .page-modal-top {
     display: inline-block;
     width: 100%;
+}
+
+.modal-textarea {
+    resize: vertical;
 }
 
 /* -----------------------------------*/
@@ -233,3 +261,7 @@ div.navbar-collapse.collapse.in {
 /* -----------------------------------*/
 /* --------->>>  Other  <<<-----------*/
 /* -----------------------------------*/
+
+textarea {
+    resize: none;
+}
