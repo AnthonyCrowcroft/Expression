@@ -185,7 +185,7 @@ div.navbar-collapse.collapse.in {
 /* -----------------------------------*/
 
 .contact-icon-margin {
-    margin: 0 10px 5px 0;
+    margin: 0 10px 5px 15px;
     vertical-align: middle;
 }
 
@@ -264,4 +264,8 @@ div.navbar-collapse.collapse.in {
 
 textarea {
     resize: none;
+}
+
+.vertical-line {
+    border-right: 1px solid #555;
 }
