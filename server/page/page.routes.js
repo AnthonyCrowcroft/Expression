@@ -13,7 +13,7 @@ var Page        = Promise.promisifyAll(require('./page.model'));
 
 var router = Express.Router();
 
-    // sends core page data to frontend
+    // Sends core page data to frontend
 router.get("/setup", function(req, res) {
     Page.find({}, {"url":1, "title":1, "nav":1, "type":1, "_id":0}, function(err, result){}).exec()
 
@@ -49,7 +49,7 @@ router.post("/pages/:id", function(req, res) {
     }
 });
 
-    // serve page data
+    // Serve page data
 router.get("/pages/:id", function(req, res) {
     Page.findOne({"url": req.params.id}, function(err, result){}).exec()
 
@@ -63,14 +63,32 @@ router.get("/pages/:id", function(req, res) {
         });
 });
 
-    // TODO update page data
+    // Update page data
 router.put("/pages/:id", function(req, res) {
-    res.send("update to be implemented");
-});
+    if(req.body.type && req.body.url && req.body.title && req.body.nav) {
 
-    // TODO delete page data
+        Page.update({"url": req.params.id}, req.body, function(err, num){}).exec()
+
+            .then(function(data) {
+                if(!data) {
+                    res.status(404).json({title: "page not found"});
+                }
+                if(data) {
+                    res.json({"message": "Updated"});
+                }
+    });
+}});
+
+    // Delete page data
 router.delete("/pages/:id", function(req, res){
-    res.send("delete to be implemented");
+    console.log(req.params.id);
+    Page.remove({"url": req.params.id}, function(err){
+        console.log(err);
+        if(!err){
+            res.json({"message": "Deleted"});
+        }
+    });
+
 });
 
 module.exports = router;

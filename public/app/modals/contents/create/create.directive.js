@@ -44,6 +44,11 @@ angular.module("expApp")
                         console.log(response.data);
                     });
                 };
+                this.editPage = function() {
+                    $http.put('/pages/' + this.form.url, this.form).then(function(response) {
+                        console.log(response.data);
+                    });
+                };
             },
             controllerAs: 'create'
         }});

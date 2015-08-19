@@ -11,6 +11,13 @@ angular.module("expApp")
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/app/modals/contents/delete/delete.html'
-
+            templateUrl: '/app/modals/contents/delete/delete.html',
+            controller: function($rootScope, $http) {
+                this.deletePage = function() {
+                    $http.delete('/pages/' + $rootScope.currentPage.url).then(function(response) {
+                        console.log(response.data);
+                    });
+                }
+            },
+            controllerAs: "delete"
         }});
