@@ -39,7 +39,7 @@
         <ul class="well">
             <li ng-repeat="item in contact.data.content">
                 <i class="fa fa-2x contact-icon-margin" ng-class="contact.contactTypes[item.id]"> </i>
-                <a href="{{item.body}}"> {{item.heading}}</a>
+                <a href="{{item.body}}" ng-click="prevent()"> {{item.heading}}</a>
             </li>
         </ul>
 
