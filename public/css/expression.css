@@ -1,0 +1,275 @@
+/* -----------------------------------*/
+/* -->>> Bootstrap media queries <<<--*/
+/* -----------------------------------*/
+
+/*
+// Landscape phones and down
+@media (max-width: 480px) { ... }
+
+// Landscape phone to portrait tablet
+@media (max-width: 768px) { ... }
+
+// Portrait tablet to landscape and desktop
+@media (min-width: 768px) and (max-width: 980px) { ... }
+
+// Large desktop
+@media (min-width: 1200px) { .. }
+*/
+
+/* -----------------------------------*/
+/* ---------->>> GLOBAL <<<-----------*/
+/* -----------------------------------*/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+}
+
+/* -----------------------------------*/
+/* ---------->>> Navbar <<<-----------*/
+/* -----------------------------------*/
+.hide-on-big-screen {
+    display: none;
+}
+
+@media (max-width: 768px){
+    .hide-on-big-screen {
+        display: inherit;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .navbar-brand {
+    }
+}
+
+/*
+    #F8F8F8 : navbar background
+    #E7E7E7 : navbar border
+    #777 : default color
+    #333 : hover color (#5E5E5E for .nav-brand)
+    #555 : active color
+    #D5D5D5 : active background
+*/
+
+
+
+/* -----------------------------------*/
+/* ---------->>> Log-In <<<-----------*/
+/* -----------------------------------*/
+
+.signup-btn {
+    height: 34px;
+    width: 85%;
+}
+
+.signup-back-btn {
+    height: 34px;
+    width: 15%;
+    padding-top: 9px;
+}
+
+.login-btn {
+    margin-right: 0;
+}
+
+.login-btn-width {
+    min-width: 130px;
+    max-width: 200px;
+}
+.login-dropdown {
+    width: 280px;
+}
+
+.login-panel {
+    padding: 10px;
+}
+
+.login-btn-block {
+    margin: 0 auto;
+}
+
+.login-form-btn {
+    width: calc(50% - 1px);
+    height: 26px;
+    font-size: 10px;
+    margin-top:3px;
+}
+
+.avatar-md {
+    height: 120px;
+    width: 120px;
+    background-color: #000000;
+    margin-bottom: 5px;
+}
+.profile {
+    display: inline-block;
+}
+
+.profile-panel {
+    width: 355px;
+    margin: 10px;
+}
+
+.divider {
+    padding: 0;
+}
+
+.width-full {
+    width: 100%
+}
+
+.width-three-quarter {
+    width: 75%;
+}
+
+.width-quarter {
+    width: 25%;
+}
+
+.width-third {
+    width: 33.3%;
+}
+
+.width-half {
+    width: 50%;
+}
+
+.profile-left {
+    margin-right: 5px;
+    width: 120px;
+}
+
+.profile-right {
+    margin-left: 5px;
+    width: 220px;
+}
+.page-button {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    margin: 12px 15px 12px auto;
+}
+
+div.navbar-collapse.collapse {
+    display: block;
+    overflow: hidden;
+    max-height: 0px;
+    -webkit-transition: max-height .6s ease;
+    -moz-transition: max-height .6s ease;
+    -o-transition: max-height .6s ease;
+    transition: max-height .6s ease;
+}
+
+div.navbar-collapse.collapse.in {
+    max-height: 2000px;
+}
+
+/* -----------------------------------*/
+/* -------->>>  Contact  <<<----------*/
+/* -----------------------------------*/
+
+.contact-icon-margin {
+    margin: 0 10px 5px 15px;
+    vertical-align: middle;
+}
+
+/*TODO */
+.map-holder {
+    background-color: #0b97c4;
+}
+
+/* -----------------------------------*/
+/* --------->>>  Modal  <<<-----------*/
+/* -----------------------------------*/
+
+.modal-backdrop, .modal.fade.in {
+    background: rgba(0,0,0, 0.75);
+}
+
+.modal-contents {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    outline: 0 none;
+}
+
+.page-modal-top {
+    display: inline-block;
+    width: 100%;
+}
+
+.modal-textarea {
+    resize: vertical;
+}
+
+/* -----------------------------------*/
+/* --------->>>  Footer  <<<----------*/
+/* -----------------------------------*/
+
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+    left:0;
+    right:0;
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+}
+
+.text-muted {
+    margin: 20px 0;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    min-height: 60px;
+    background-color: #f5f5f5;
+    border: 1px solid #e7e7e7;
+}
+
+/* -----------------------------------*/
+/* --------->>>  Alerts  <<<----------*/
+/* -----------------------------------*/
+
+.message-panel {
+    position: absolute;
+    bottom: 60px;
+}
+/* -----------------------------------*/
+/* --------->>>  Other  <<<-----------*/
+/* -----------------------------------*/
+
+textarea {
+    resize: none;
+}
+
+.vertical-line {
+    border-right: 1px solid #555;
+}

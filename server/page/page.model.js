@@ -16,6 +16,7 @@ var pageSchema = new mongoose.Schema({
     title     : String,
     nav       : Boolean,
     type      : String,
+    protected : Boolean,
     content   : [
         {
             id      : String,
