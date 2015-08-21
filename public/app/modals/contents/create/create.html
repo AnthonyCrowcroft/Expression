@@ -52,7 +52,7 @@
 
         <div ng-if="create.form.type=='text' || create.form.type=='home'">
             <h3 class="modal-title text-capitalize">{{create.form.type}}</h3>
-            <div ng-repeat="item in create.form.content" class="form-horizontal well">
+            <div ng-repeat="item in create.form.content" class="form-horizontal clearfix well">
                 <div class="form-group">
                     <label class="control-label col-md-2"> Heading </label>
                     <div class="col-md-10">
@@ -80,8 +80,10 @@
                         <input ng-model="item.author" type="text" class="form-control">
                     </div>
                 </div>
-                <i class="fa fa-plus-circle fa-2x btn" ng-click="create.addContent(item)"> </i>
-                <i class="fa fa-minus-circle fa-2x btn" ng-click="create.removeContent(item)"> </i>
+                <div class="btn-group modal-add-remove">
+                    <a class="btn btn-default" ng-click="create.addContent(item)"><i class="fa fa-plus"></i></a>
+                    <a class="btn btn-default" ng-click="create.removeContent(item)"><i class="fa fa-minus"></i></a>
+                </div>
             </div>
         </div>
 
@@ -108,8 +110,10 @@
                         <input ng-model="item.body" type="text" class="form-control">
                     </div>
                 </div>
-                <i class="fa fa-plus-circle fa-2x btn" ng-click="create.addContent(item)"> </i>
-                <i class="fa fa-minus-circle fa-2x btn" ng-click="create.removeContent(item)"> </i>
+                <div class="btn-group">
+                    <a class="btn btn-default"><i class="fa fa-plus-circle fa-2x btn" ng-click="create.addContent(item)"></i></a>
+                    <a class="btn btn-default"><i class="fa fa-minus-circle fa-2x btn" ng-click="create.removeContent(item)"></i></a>
+                </div>
             </div>
         </div>
 
@@ -125,8 +129,8 @@
     </div>
 
     <div class="modal-footer">
-        <button ng-if="createState=='Create'" class="btn btn-success" ng-click="create.createPage(): ok()">Create</button>
-        <button ng-if="createState=='Edit'" class="btn btn-success" ng-click="create.editPage(); ok()">Edit</button>
+        <button ng-if="createState=='Create'" class="btn btn-success" ng-click="create.createPage(); ok();">Create</button>
+        <button ng-if="createState=='Edit'" class="btn btn-success" ng-click="create.editPage(); ok();">Edit</button>
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
 </div>

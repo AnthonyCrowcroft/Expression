@@ -3,16 +3,16 @@
 /* -----------------------------------*/
 
 /*
-// Landscape phones and down
+// Landscape phones and down (col-xs)
 @media (max-width: 480px) { ... }
 
-// Landscape phone to portrait tablet
+// Landscape phone to portrait tablet (col-sm)
 @media (max-width: 768px) { ... }
 
-// Portrait tablet to landscape and desktop
+// Portrait tablet to landscape and desktop (col-md)
 @media (min-width: 768px) and (max-width: 980px) { ... }
 
-// Large desktop
+// Large desktop (col-lg)
 @media (min-width: 1200px) { .. }
 */
 
@@ -36,29 +36,24 @@ ul {
     padding: 0;
 }
 
-li {
-    padding: 5px 0;
-}
-
-/* -----------------------------------*/
-/* ---------->>> Navbar <<<-----------*/
-/* -----------------------------------*/
-.hide-on-big-screen {
+.hide-on-desktop {
     display: none;
 }
 
-@media (max-width: 768px){
-    .hide-on-big-screen {
-        display: inherit;
+@media (max-width: 768px) {
+    .hide-on-desktop {
+        display: block;
     }
 
     .hide-on-mobile {
         display: none;
     }
-
-    .navbar-brand {
-    }
 }
+
+
+/* -----------------------------------*/
+/* ---------->>> Navbar <<<-----------*/
+/* -----------------------------------*/
 
 /*
     #F8F8F8 : navbar background
@@ -69,7 +64,52 @@ li {
     #D5D5D5 : active background
 */
 
+.navbar-brand {
+    /*padding: inherit;*/
+}
 
+.navbar-toggle {
+    border: none;
+    padding: 6px 6px;
+    margin: 5px 15px 5px 0;
+    font-size: 1.5em;
+    z-index: 2;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+.nav-user {
+    margin-left: 12px;
+}
+
+@media (max-width: 768px){
+
+    .navbar {
+        position: relative;
+    }
+
+    li {
+        z-index: 3;
+    }
+
+    .navbar-brand {
+        float: none;
+    }
+
+    .navbar-center {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        text-align: center;
+        margin: auto;
+        height: 100%;
+        padding: 0 -210px 0 -210px;
+        z-index: 1;
+    }
+}
 
 /* -----------------------------------*/
 /* ---------->>> Log-In <<<-----------*/
@@ -222,6 +262,14 @@ div.navbar-collapse.collapse.in {
 
 .modal-textarea {
     resize: vertical;
+}
+
+.modal-add-remove {
+    float: right;
+}
+
+.modal-delete-text {
+    padding-bottom: 20px;
 }
 
 /* -----------------------------------*/

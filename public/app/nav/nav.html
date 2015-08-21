@@ -2,44 +2,53 @@
 
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-        <i type="button" class="fa fa-bars fa-2x navbar-nav btn pull-left hide-on-big-screen" ng-init="navCollapsed == true" ng-click="navCollapsed = !navCollapsed">
-            <span class="sr-only">Toggle navigation</span>
-        </i>
+        <button class="navbar-toggle" ng-init="navCollapsed == true" ng-click="navCollapsed = !navCollapsed">
+            <i class="fa fa-bars">
+                <span class="sr-only"></span>
+            </i>
+        </button>
 
-        <ul class="navbar-btn login-btn pull-right hide-on-big-screen" ng-hide="nav.users == false">
-            <li ng-show="user !== undefined"class="btn-group" dropdown>
-                <button type="button"  class="btn btn-default dropdown-toggle login-btn-width" dropdown-toggle >
-                    {{user.meta.firstName}}
-                    <span class="caret"></span>
-                </button>
-                <div class="dropdown-menu" role="menu" ng-click="prevent($event)">
-                    <profile-panel> </profile-panel>
-                </div>
-            </li>
-            <li ng-show="user === undefined" class="btn-group" dropdown>
-                <button type="button"  class="btn btn-primary dropdown-toggle login-btn-width" dropdown-toggle >
-                    {{loginState}}
-                    <span class="caret"></span>
-                </button>
-                <div class="dropdown-menu login-dropdown" role="menu" ng-click="prevent($event)">
-                    <login-panel> </login-panel>
-                </div>
-            </li>
-        </ul>
+        <button class="navbar-toggle pull-left nav-user" ng-init="navCollapsed == true" ng-click="navCollapsed = !navCollapsed">
+            <i class="fa fa-user">
+                <span class="sr-only"></span>
+            </i>
+        </button>
 
-        <!-- Will need to be changed if you want to use an image -->
-        <a class="nav navbar-brand navbar-nav" ui-sref="/home">{{nav.siteName}}</a>
+        <!-- For when brand is text -->
+        <!-- Desktop -->
+        <a class="navbar-brand hide-on-mobile" ui-sref="/home">{{nav.siteName}}</a>
+
+        <!-- Mobile -->
+        <div class="navbar-center navbar-brand hide-on-desktop">
+            <a class="navbar-brand" ui-sref="/home">{{nav.siteName}}</a>
+        </div>
+
+        <!-- For when brand is an image -->
+        <!-- Desktop -->
+        <!--<a class="navbar-brand" ui-sref="/home">-->
+            <!--<img alt="{{nav.siteName}}" src="">-->
+        <!--</a>-->
+
+        <!-- Mobile -->
+        <!--<div class="navbar-center navbar-brand">-->
+            <!--<a class="navbar-brand" ui-sref="/home">-->
+                <!--<img alt="{{nav.siteName}}" src="">-->
+            <!--</a>-->
+        <!--</div>-->
     </div>
 
-    <!-- Collect the nav links, forms, and other contents for toggling -->
+
+    <!-- Collect the nav links, and other content for toggling -->
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
 
+        <!-- Repeats over all pages that are meant to in the nav bar -->
         <ul class="nav navbar-nav">
             <li ui-sref-active="active" ng-repeat="page in nav.pages">
                 <a ui-sref="{{'/' + page.url}}">{{page.title}}</a>
             </li>
         </ul>
 
+         <!--adds a search bar after the pages provided the config states nav.search is true -->
         <form class="navbar-form navbar-left" role="search" ng-hide="nav.search == false">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
@@ -47,8 +56,9 @@
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
 
-        <ul class="navbar-btn navbar-right login-btn hide-on-mobile" ng-hide="nav.users == false">
-            <li ng-show="user !== undefined"class="btn-group" dropdown>
+        <!-- adds a log-in dropdown  provided the config states nav.users is true -->
+        <ul class="navbar-btn navbar-right login-btn" ng-hide="nav.users == false">
+            <li ng-show="user !== undefined" class="btn-group" dropdown>
                 <button type="button"  class="btn btn-default dropdown-toggle login-btn-width" dropdown-toggle >
                     {{user.meta.firstName}}
                     <span class="caret"></span>
