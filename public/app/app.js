@@ -20,7 +20,7 @@
         }
     );
 
-    app.run( function (SetupConfig, $rootScope) {
+    app.run( function (SetupConfig, $rootScope, $window) {
         if (SetupConfig.users == true) {
             $rootScope.loginState = "Login";
             $rootScope.modalState = "Edit";
@@ -36,7 +36,20 @@
         $rootScope.prevent = function(evt) {
             evt.stopPropagation();
         };
+        var pageSize = angular.element($window);
+        $rootScope.$watch(
+            function () {
+                return {width: $window.innerWidth, height: $window.innerHeight};
+            },
+            function (value) {
+                $rootScope.windowSize = value;
+            },
+            true
+        );
 
+        pageSize.bind('resize', function(){
+            $rootScope.$apply();
+        });
     });
 
 })();

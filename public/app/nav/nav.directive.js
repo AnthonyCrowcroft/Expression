@@ -24,6 +24,9 @@ angular.module("expApp")
                     }
                 });
                 this.pages = pages;
+                this.navCollapsed = false;
+                this.userCollapsed = false;
+
             },
             controllerAs: 'nav'
         };

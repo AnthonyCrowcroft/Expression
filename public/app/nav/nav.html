@@ -2,13 +2,13 @@
 
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-        <button class="navbar-toggle" ng-init="navCollapsed == true" ng-click="navCollapsed = !navCollapsed">
+        <button class="navbar-toggle" ng-click="nav.navCollapsed = !nav.navCollapsed">
             <i class="fa fa-bars">
                 <span class="sr-only"></span>
             </i>
         </button>
 
-        <button class="navbar-toggle pull-left nav-user" ng-init="navCollapsed == true" ng-click="navCollapsed = !navCollapsed">
+        <button class="navbar-toggle pull-left nav-user" ng-click="nav.userCollapsed = !nav.userCollapsed">
             <i class="fa fa-user">
                 <span class="sr-only"></span>
             </i>
@@ -36,10 +36,17 @@
             <!--</a>-->
         <!--</div>-->
     </div>
-
+    <div class="collapse navbar-collapse" ng-class="!nav.userCollapsed && 'in'">
+        <div ng-show="user !== undefined && windowSize.width < 767">
+            <profile-panel> </profile-panel>
+        </div>
+        <div ng-show="user === undefined && windowSize.width < 767">
+            <login-panel> </login-panel>
+        </div>
+    </div>
 
     <!-- Collect the nav links, and other content for toggling -->
-    <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+    <div class="collapse navbar-collapse" ng-class="!nav.navCollapsed && 'in'">
 
         <!-- Repeats over all pages that are meant to in the nav bar -->
         <ul class="nav navbar-nav">
@@ -57,7 +64,7 @@
         </form>
 
         <!-- adds a log-in dropdown  provided the config states nav.users is true -->
-        <ul class="navbar-btn navbar-right login-btn" ng-hide="nav.users == false">
+        <ul class="navbar-btn navbar-right login-btn" ng-hide="nav.users == false || windowSize.width < 767">
             <li ng-show="user !== undefined" class="btn-group" dropdown>
                 <button type="button"  class="btn btn-default dropdown-toggle login-btn-width" dropdown-toggle >
                     {{user.meta.firstName}}
