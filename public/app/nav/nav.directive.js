@@ -24,9 +24,17 @@ angular.module("expApp")
                     }
                 });
                 this.pages = pages;
-                this.navCollapsed = false;
-                this.userCollapsed = false;
-
+                this.navCollapsed = true;
+                this.userCollapsed = true;
+                this.autoClose = function() {
+                    if($rootScope.windowSize.width > 767) {
+                        this.userCollapsed = true;
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                };
             },
             controllerAs: 'nav'
         };

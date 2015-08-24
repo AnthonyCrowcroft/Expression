@@ -36,13 +36,15 @@
             <!--</a>-->
         <!--</div>-->
     </div>
+    <div ng-if="windowSize.width < 767">
     <div class="collapse navbar-collapse" ng-class="!nav.userCollapsed && 'in'">
-        <div ng-show="user !== undefined && windowSize.width < 767">
+        <div ng-show="user !== undefined">
             <profile-panel> </profile-panel>
         </div>
-        <div ng-show="user === undefined && windowSize.width < 767">
+        <div ng-show="user === undefined">
             <login-panel> </login-panel>
         </div>
+    </div>
     </div>
 
     <!-- Collect the nav links, and other content for toggling -->
