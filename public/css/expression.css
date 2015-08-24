@@ -41,6 +41,11 @@ ul {
 }
 
 @media (max-width: 767px) {
+
+    body {
+        margin-top: 0px;
+    }
+
     .hide-on-desktop {
         display: block;
     }
