@@ -26,8 +26,8 @@ html {
 }
 
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-top: 60px; /* Margin to by navbar height */
+    margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
 ul {
@@ -63,10 +63,6 @@ ul {
     #555 : active color
     #D5D5D5 : active background
 */
-
-.navbar-brand {
-    /*padding: inherit;*/
-}
 
 .navbar-toggle {
     border: none;

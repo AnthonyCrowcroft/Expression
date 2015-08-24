@@ -1,0 +1,61 @@
+body {
+    background-color: #E0E0E0;
+}
+
+/* -----------------------------------*/
+/* --------->>> Nav-Bar <<<-----------*/
+/* -----------------------------------*/
+
+.navbar-default {
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4cffffff', endColorstr='#4cffffff'); /* For IE8 and below */
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+/* -----------------------------------*/
+/* --------->>> Buttons <<<-----------*/
+/* -----------------------------------*/
+
+.btn {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding: 4px 12px;
+}
+
+.btn-group.open .dropdown-toggle, .btn-group:focus, .btn:active, .btn-active {
+    box-shadow: none;
+}
+
+.btn-primary {
+    background: none;
+    border: 2px solid #00A5C9;
+    color: #00A5C9;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #00A5C9;
+    border: 2px solid #00A5C9;
+}
+
+.btn-success {
+    background: none;
+    border: 2px solid #00b57c;
+    color: #FFF6EE;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success, .open > .dropdown-toggle.btn-success {
+    background: #00b57c;
+    border: 2px solid #00b57c;
+}
+
+/* -----------------------------------*/
+/* --------->>> General <<<-----------*/
+/* -----------------------------------*/
+
+a:focus{
+    outline: none;
+}
