@@ -69,7 +69,7 @@
             <!-- adds a log-in dropdown  provided the config states nav.users is true -->
             <ul class="navbar-btn navbar-right login-btn" ng-hide="nav.users == false || windowSize.width < 767">
                 <li ng-show="user !== undefined" class="btn-group" dropdown>
-                    <button type="button"  class="btn btn-default dropdown-toggle login-btn-width" dropdown-toggle >
+                    <button type="button"  class="btn btn-primary dropdown-toggle login-btn-width" dropdown-toggle >
                         {{user.meta.firstName}}
                         <span class="caret"></span>
                     </button>
@@ -78,7 +78,7 @@
                     </div>
                 </li>
                 <li ng-show="user === undefined" class="btn-group" dropdown>
-                    <button type="button"  class="btn btn-default dropdown-toggle login-btn-width" dropdown-toggle >
+                    <button type="button"  class="btn btn-primary dropdown-toggle login-btn-width" dropdown-toggle >
                         {{loginState}}
                         <span class="caret"></span>
                     </button>
