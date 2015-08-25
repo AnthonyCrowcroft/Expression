@@ -43,7 +43,7 @@ ul {
 @media (max-width: 767px) {
 
     body {
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     .hide-on-desktop {
@@ -108,7 +108,7 @@ ul {
         margin: auto;
         height: 100%;
         padding: 0 -210px 0 -210px;
-        z-index: 1;
+        z-index: -1;
     }
 }
 
@@ -135,6 +135,7 @@ ul {
     min-width: 130px;
     max-width: 200px;
 }
+
 .login-dropdown {
     width: 280px;
 }
