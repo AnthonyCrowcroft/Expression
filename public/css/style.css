@@ -83,18 +83,18 @@ body {
 }
 
 /* mobile version */
-.navbar-default .navbar-toggle {
-    border-color: #f8fdff;
-}
+/*.navbar-default .navbar-toggle {*/
+    /*border-color: #f8fdff;*/
+/*}*/
 
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-    background-color: #006083;
-}
+/*.navbar-default .navbar-toggle:hover,*/
+/*.navbar-default .navbar-toggle:focus {*/
+    /*background-color: #006083;*/
+/*}*/
 
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #f8fdff;
-}
+/*.navbar-default .navbar-toggle .icon-bar {*/
+    /*background-color: #f8fdff;*/
+/*}*/
 
 /* -----------------------------------*/
 /* ---------->>> Forms <<<------------*/
