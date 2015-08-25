@@ -62,7 +62,12 @@ if(config.frontendConfig.contact) {
 var path            = require('path');
 var staticPath = path.resolve(__dirname, './../', 'public');
 app.use(Express.static(staticPath));
-app .all('/*', function(req, res) {
+
+app.all('/noauth', function(req, res) {
+    res.json({"message": "not authorised to view content"});
+});
+
+app.all('/*', function(req, res) {
     res.sendfile('index.html', {root: staticPath});
 });
 

@@ -10,6 +10,7 @@ var Express     = require("express");
 var Promise     = require("bluebird");
 var config      = require("./../server.config.json").frontendConfig;
 var Page        = Promise.promisifyAll(require('./page.model'));
+var auth        = require("./../middleware/authentication");
 
 var router = Express.Router();
 
@@ -28,7 +29,7 @@ router.get("/setup", function(req, res) {
 });
 
     // create page data
-router.post("/pages/:id", function(req, res) {
+router.post("/pages/:id", auth.isStaff, function(req, res) {
     if(req.body.type && req.body.url && req.body.title && req.body.nav) {
 
         Page.findOne({"url": req.params.id}, function(err, result){}).exec()
@@ -64,7 +65,7 @@ router.get("/pages/:id", function(req, res) {
 });
 
     // Update page data
-router.put("/pages/:id", function(req, res) {
+router.put("/pages/:id", auth.isStaff, function(req, res) {
     if(req.body.type && req.body.url && req.body.title && req.body.nav) {
 
         Page.update({"url": req.params.id}, req.body, function(err, num){}).exec()
@@ -80,7 +81,7 @@ router.put("/pages/:id", function(req, res) {
 }});
 
     // Delete page data
-router.delete("/pages/:id", function(req, res){
+router.delete("/pages/:id", auth.isStaff, function(req, res){
     console.log(req.params.id);
     Page.remove({"url": req.params.id}, function(err){
         console.log(err);
