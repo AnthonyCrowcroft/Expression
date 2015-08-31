@@ -27,25 +27,25 @@
             <!-- For when brand is an image -->
             <!-- Desktop -->
             <!--<a class="navbar-brand" ui-sref="/home">-->
-                <!--<img alt="{{nav.siteName}}" src="">-->
+            <!--<img alt="{{nav.siteName}}" src="">-->
             <!--</a>-->
 
             <!-- Mobile -->
             <!--<div class="navbar-center navbar-brand">-->
-                <!--<a class="navbar-brand" ui-sref="/home">-->
-                    <!--<img alt="{{nav.siteName}}" src="">-->
-                <!--</a>-->
+            <!--<a class="navbar-brand" ui-sref="/home">-->
+            <!--<img alt="{{nav.siteName}}" src="">-->
+            <!--</a>-->
             <!--</div>-->
         </div>
         <div ng-if="windowSize.width < 767">
-        <div class="collapse navbar-collapse" ng-class="!nav.userCollapsed && 'in'">
-            <div ng-show="user !== undefined">
-                <profile-panel> </profile-panel>
+            <div class="collapse navbar-collapse" ng-class="!nav.userCollapsed && 'in'">
+                <div ng-show="user !== undefined">
+                    <profile-panel> </profile-panel>
+                </div>
+                <div ng-show="user === undefined">
+                    <login-panel> </login-panel>
+                </div>
             </div>
-            <div ng-show="user === undefined">
-                <login-panel> </login-panel>
-            </div>
-        </div>
         </div>
 
         <!-- Collect the nav links, and other content for toggling -->
@@ -58,7 +58,7 @@
                 </li>
             </ul>
 
-             <!--adds a search bar after the pages provided the config states nav.search is true -->
+            <!--adds a search bar after the pages provided the config states nav.search is true -->
             <form class="navbar-form navbar-left" role="search" ng-hide="nav.search == false">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">

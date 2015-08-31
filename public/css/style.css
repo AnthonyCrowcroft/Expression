@@ -2,13 +2,30 @@ body {
     background-color: #E0E0E0;
 }
 
+html {
+    background: url(./../res/5wcbm7jz.bmp) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+    /* for IE apply to a div */
+.full-screen-image {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../res/5wcbm7jz.bmp', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../res/5wcbm7jz.bmp', sizingMethod='scale')";
+}
+
 /* -----------------------------------*/
 /* --------->>> Nav-Bar <<<-----------*/
 /* -----------------------------------*/
 
 .navbar-default {
     border: none;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.7);
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4cffffff', endColorstr='#4cffffff'); /* For IE8 and below */
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -17,13 +34,13 @@ body {
 
 /* title 'brand' */
 .navbar-default .navbar-brand {
-    color: #00A5C9;
+    color: #00A6CA;
     font-size: 22px;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #00A5C9;
+    color: #00A6CA;
 }
 
 /* links */
@@ -33,21 +50,20 @@ body {
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    /*color: #006083;*/
+
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-    /*color: ;*/
     background-color: transparent;
-    border-bottom: 2px solid #00A5C9;
+    box-shadow: 0 -2px 0 #00A6CA inset;
 }
 
 /* dropdowns */
 .navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top-color: #0099D1;
-    border-bottom-color: #0099D1;
+    border-top-color: #00A6CA;
+    border-bottom-color: #00A6CA;
 }
 
 .navbar-default .navbar-nav > .dropdown > a:hover .caret,
@@ -96,6 +112,8 @@ body {
     /*background-color: #f8fdff;*/
 /*}*/
 
+
+
 /* -----------------------------------*/
 /* ---------->>> Forms <<<------------*/
 /* -----------------------------------*/
@@ -107,7 +125,7 @@ body {
 }
 
 .form-control:focus {
-    border-color: #00A5C9;
+    border-color: #00A6CA;
 }
 
 /* -----------------------------------*/
@@ -118,7 +136,11 @@ body {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    padding: 4px 12px;
+    /*padding: 4px 12px;*/
+}
+
+.navbar-btn li button.btn {
+    padding: 5px 0;
 }
 
 .btn-group.open .dropdown-toggle, .btn-group:focus, .btn:active, .btn-active {
@@ -145,20 +167,20 @@ body {
 
 .btn-primary {
     background: none;
-    border: 2px solid #00A5C9;
-    color: #00A5C9;
+    border: 2px solid #00A6CA;
+    color: #00A6CA;
     transition: 1s;
 }
 
 .btn-primary-background {
     background: #FFFFFF;
-    border: 2px solid #00A5C9;
-    color: #00A5C9;
+    border: 2px solid #00A6CA;
+    color: #00A6CA;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #00A5C9;
-    border: 2px solid #00A5C9;
+    background: #00A6CA;
+    border: 2px solid #00A6CA;
 }
 
 .btn-success {
@@ -184,4 +206,14 @@ body {
 
 a:focus{
     outline: none;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 60px; /* Fixed height of the footer here */
+    background: rgba(255, 255, 255, 0.7);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#4cffffff', endColorstr='#4cffffff'); /* For IE8 and below */
+    border-top: 1px solid #00A6CA;
 }
