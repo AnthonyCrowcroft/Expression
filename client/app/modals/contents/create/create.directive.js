@@ -11,7 +11,7 @@ angular.module("expApp")
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/app/modals/contents/create/create.html',
+            template: require('./create.html'),
             controller: function(){
                 if($rootScope.createState == "Edit") {
                     this.form = angular.copy($rootScope.currentPage);

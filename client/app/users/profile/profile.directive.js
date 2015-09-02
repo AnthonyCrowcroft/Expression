@@ -12,7 +12,7 @@ angular.module("expApp")
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/app/users/profile/profile.html',
+            template: require('./profile.html'),
             controller: function($http, $rootScope) {
                 this.logout = function() {
                     $http.post('/local/logout').then(function(response){
@@ -20,7 +20,6 @@ angular.module("expApp")
                             $rootScope.user = undefined;
                         }
                     });
-
                 };
             },
             controllerAs: 'profile'

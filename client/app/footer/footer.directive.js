@@ -10,7 +10,7 @@ angular.module("expApp")
     .directive("footerBar", function(){
         return {
             restrict: 'E',
-            replace: true,
-            templateUrl: '/app/footer/footer.html'
+            //TODO replace: true,
+            template: require('./footer.html')
         };
     });

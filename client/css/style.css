@@ -3,7 +3,7 @@ body {
 }
 
 html {
-    background: url(./../res/5wcbm7jz.bmp) no-repeat center center fixed;
+    background: url(../res/5wcbm7jz.bmp) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -15,8 +15,6 @@ html {
     position: fixed;
     height: 100%;
     width: 100%;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../res/5wcbm7jz.bmp', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../res/5wcbm7jz.bmp', sizingMethod='scale')";
 }
 
 /* -----------------------------------*/

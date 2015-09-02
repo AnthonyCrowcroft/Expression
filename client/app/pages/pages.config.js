@@ -12,7 +12,7 @@ angular.module("expApp")
 
         $stateProvider.state('/home', {
             url: "/home",
-            templateUrl: "./app/pages/home/home.html",
+            template: require("./home/home.html"),
             resolve:{
                 homeData: function($http) {
                     var location = "/pages/home";
@@ -25,7 +25,7 @@ angular.module("expApp")
         if (SetupConfig.contact) {
             $stateProvider.state('/contact', {
                 url: "/contact",
-                templateUrl: "./app/pages/contact/contact.html",
+                template: require("./contact/contact.html"),
                 resolve: {
                     contactData: function ($http) {
                         var location = "/pages/contact";
@@ -35,15 +35,13 @@ angular.module("expApp")
                 controller: "ContactController as contact"
             });
         }
-        console.log(SetupConfig);
         angular.forEach(SetupConfig.pages, function(page) {
              if (page.type != 'home' && page.type != 'contact') {
                 $stateProvider.state("/" + page.url, {
                     url: "/" + page.url,
-                    templateUrl: "./app/pages/" + page.type + "/" + page.type +  ".html",
+                    template: require("./" + page.type + "/" + page.type +  ".html"),
                     resolve:{
                         pageData: function($http) {
-                            console.log( "./app/pages/" + page.type + "/" + page.type +  ".html");
                             var location = "/pages/" + page.url;
                             return $http.get(location);
                         }

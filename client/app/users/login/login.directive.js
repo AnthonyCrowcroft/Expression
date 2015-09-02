@@ -11,7 +11,7 @@ angular.module("expApp")
         return {
             restrict: 'E',
             replace: true,
-            templateUrl: '/app/users/login/login.html',
+            template: require('./login.html'),
             controller: function($http, $rootScope){
                 this.user = {};
                 this.submit = function() {

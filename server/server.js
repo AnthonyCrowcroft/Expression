@@ -63,6 +63,28 @@ var path            = require('path');
 var staticPath = path.resolve(__dirname, './../', 'public');
 app.use(Express.static(staticPath));
 
+var webpack = require('webpack');
+
+webpack({
+    entry: './server/webpack.js',
+    output: {path: './public/bundles', filename: 'bundle.js'},
+    module: {
+        loaders: [
+            {test: /\.css$/, loader: "style!css"},
+            {test: /\.html$/, loader: "html"},
+            {test: /\.(png|jpg|gif|bmp)$/, loader: "url?prefix=img/&limit=5000"},
+            {test: /\.(woff|woff2)(\?|$)/, loader: "url?limit=5000&minetype=application/font-woff"},
+            {test: /\.(eot|ttf|svg)(\?|$)/, loader: "file?prefix=font/"}
+        ]
+    },
+    resolve: {
+        modulesDirectories: ['node_modules']
+    }
+},function(err,stats){
+    console.log(err);
+    console.log(stats.toJson());
+});
+
 app.all('/noauth', function(req, res) {
     res.json({"message": "not authorised to view content"});
 });

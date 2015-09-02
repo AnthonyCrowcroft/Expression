@@ -18,7 +18,7 @@
         <div class="login-btn-block" ng-click="prevent($event)" ng-hide="loginState=='Register'">
             <input class="btn btn-success width-full" type="submit" id="login" value="Login" />
             <button class="btn btn-default login-form-btn" ng-click="loginState = 'Register'"> Don't have an account?</button>
-            <button class="btn btn-default login-form-btn"> Forgotten password?</button>
+            <button class="btn btn-default login-form-btn" ng-click="loginState = 'Reset'"> Forgotten password?</button>
         </div>
         <div class="btn-group width-full" ng-click="prevent($event)" ng-hide="loginState=='Login'">
             <input class="btn signup-btn btn-success" type="submit" id="signUp" value="Sign Up" />
